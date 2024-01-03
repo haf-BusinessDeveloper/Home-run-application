@@ -28,6 +28,9 @@
 
   <!-- Google Font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+
+  <?= $this->renderSection('css-styles') ?>
+
 </head>
 
 <body class="hold-transition skin-blue sidebar-mini">
@@ -352,17 +355,6 @@
 
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
-      <!-- Content Header (Page header) -->
-      <section class="content-header">
-        <h1>
-          Widgets
-          <small>Preview page</small>
-        </h1>
-        <ol class="breadcrumb">
-          <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-          <li class="active">Widgets</li>
-        </ol>
-      </section>
 
       <?= $this->renderSection('content') ?>
 
@@ -585,6 +577,9 @@
   <script src="<?= base_url('public/dashboard') ?>/dist/js/adminlte.min.js"></script>
   <!-- AdminLTE for demo purposes -->
   <script src="<?= base_url('public/dashboard') ?>/dist/js/demo.js"></script>
+
+  <?= $this->renderSection('js-scripts') ?>
+
 </body>
 
 </html>
