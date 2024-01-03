@@ -17,7 +17,6 @@ class Services extends BaseController
     {
         $dataPosted = $this->request->getPost();
         if($dataPosted){
-            var_dump($dataPosted);
             $ServiceModel = new ServiceModel();
             $ServiceModel->insert($dataPosted);
             $session = session();
