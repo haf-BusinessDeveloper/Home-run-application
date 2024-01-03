@@ -1,0 +1,37 @@
+CRITICAL - 2024-01-03 07:50:19 --> Invalid file: "dashboard/pages/list-page.php"
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 33.
+ 1 SYSTEMPATH\View\View.php(201): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('dashboard/pages/list-page.php')
+ 2 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('dashboard/pages/list-page', [], true)
+ 3 APPPATH\Controllers\Dashboard\Users.php(21): view('dashboard/pages/list-page')
+ 4 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Dashboard\Users->list()
+ 5 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard\Users))
+ 6 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-01-03 08:00:29 --> Invalid file: "dashboard/pages/users/list/trash-page.php"
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 33.
+ 1 SYSTEMPATH\View\View.php(201): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('dashboard/pages/users/list/trash-page.php')
+ 2 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('dashboard/pages/users/list/trash-page', [], true)
+ 3 APPPATH\Controllers\Dashboard\Users.php(26): view('dashboard/pages/users/list/trash-page')
+ 4 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Dashboard\Users->trash()
+ 5 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard\Users))
+ 6 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-01-03 08:03:12 --> Invalid file: "dashboard/pages/users/home-page.php"
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 33.
+ 1 SYSTEMPATH\View\View.php(201): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('dashboard/pages/users/home-page.php')
+ 2 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('dashboard/pages/users/home-page', [], true)
+ 3 APPPATH\Controllers\Dashboard\Users.php(16): view('dashboard/pages/users/home-page')
+ 4 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Dashboard\Users->create()
+ 5 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard\Users))
+ 6 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-01-03 08:38:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-01-03 08:39:14 --> Invalid file: "dashboard/pages/users/show-page.php"
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 33.
+ 1 SYSTEMPATH\View\View.php(201): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('dashboard/pages/users/show-page.php')
+ 2 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('dashboard/pages/users/show-page', [], true)
+ 3 APPPATH\Controllers\Dashboard\Users.php(25): view('dashboard/pages/users/show-page')
+ 4 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Dashboard\Users->show('id')
+ 5 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard\Users))
+ 6 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()

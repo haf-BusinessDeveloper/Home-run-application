@@ -1,8 +1,23 @@
 <?= $this->extend('dashboard/dashboard-layout') ?>
 
 
+<?= $this->section('css-styles') ?>
+
+<?= $this->endSection() ?>
+
 <?= $this->section('content') ?>
 
+<!-- Content Header (Page header) -->
+<section class="content-header">
+    <h1>
+        Widgets
+        <small>Preview page</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">Widgets</li>
+    </ol>
+</section>
 
 <!-- Main content -->
 <section class="content">
@@ -1063,5 +1078,9 @@
 
 </section>
 <!-- /.content -->
+
+<?= $this->endSection() ?>
+
+<?= $this->section('js-scripts') ?>
 
 <?= $this->endSection() ?>
