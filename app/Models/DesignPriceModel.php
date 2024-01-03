@@ -17,6 +17,7 @@ class DesignPriceModel extends Model
     protected $allowedFields = [
         
         "room_type_id",
+        "design_title",
         "design_image",
         "price_per_square_meter",
         "design_price_created_at",
