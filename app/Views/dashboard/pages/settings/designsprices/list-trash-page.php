@@ -41,7 +41,7 @@
                                 <th>Browser</th>
                                 <th>Platform(s)</th>
                                 <th>Engine version</th>
-                                <th>CSS grade</th>
+                                <th>#</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -72,7 +72,7 @@
                                 <th>Browser</th>
                                 <th>Platform(s)</th>
                                 <th>Engine version</th>
-                                <th>CSS grade</th>
+                                <th>#</th>
                             </tr>
                         </tfoot>
                     </table>
