@@ -29,7 +29,7 @@
 
             <div class="box">
                 <div class="box-header">
-                    <h3 class="box-title">Data Table With Full Features</h3>
+                    <h3 class="box-title">Data Table</h3>
                     <button class="btn btn-xs btn-danger pull-right"> <i class="fa fa-trash-o"></i> Empty Trash</button>
                 </div>
                 <!-- /.box-header -->
