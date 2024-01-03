@@ -36,7 +36,7 @@
                 <div class="box-body">
                     <div class="form-group">
                         <label for="room_type_title">room type title</label>
-                        <input type="text" class="form-control" name="room_type_title" id="room_type_title" placeholder="Enter room type title">
+                        <input disabled value="<?= $record['room_type_title'] ?>" type="text" class="form-control" name="room_type_title" id="room_type_title" placeholder="Enter room type title">
                     </div>
                 </div>
                 <!-- /.box-body -->
