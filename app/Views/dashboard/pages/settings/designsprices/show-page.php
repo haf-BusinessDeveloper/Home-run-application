@@ -35,16 +35,16 @@
 
                 <div class="box-body">
                     <div class="form-group">
-                        <label for="design_title">Design title</label>
-                        <input type="text" class="form-control" name="design_title" id="design_title" placeholder="Enter design title">
+                            <label for="design_title">Design title</label>
+                            <input disabled value="<?= $record['design_title'] ?>" type="text" class="form-control" name="design_title" id="design_title" placeholder="Enter design title">
                     </div>
                     <div class="form-group">
-                        <label for="design_image">Design image</label>
-                        <input type="file" class="form-control" name="design_image" id="design_image">
+                        <label for="design_image">Design image</label><br>
+                        <img width="450px" src="<?= base_url('writable/uploads/') ?><?= $record['design_image'] ?>" alt="">
                     </div>
                     <div class="form-group">
-                        <label for="price_per_square_meter">Price per square meter</label>
-                        <input type="text" class="form-control" name="price_per_square_meter" id="price_per_square_meter" placeholder="Enter Price per square meter">
+                            <label for="price_per_square_meter">Price per square meter</label>
+                            <input disabled value="<?= $record['price_per_square_meter'] ?>" type="text" class="form-control" name="price_per_square_meter" id="price_per_square_meter" placeholder="Enter Price per square meter">
                     </div>
                 </div>
                 <!-- /.box-body -->

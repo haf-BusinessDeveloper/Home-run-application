@@ -25,6 +25,19 @@
 <section class="content">
 
     <div class="row">
+
+        <?php
+        $session = session();
+        $deleted_successfuly = $session->getFlashdata('deleted_successfuly');
+        if ($deleted_successfuly) : ?>
+            <div class="col-md-12">
+                <div class="alert alert-danger alert-dismissible">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                    <h4><i class="icon fa fa-ban"></i> Alert!</h4>
+                    data deleted successfuly !
+                </div>
+            </div>
+        <?php endif; ?>
         <div class="col-xs-12">
 
             <div class="box">
@@ -36,46 +49,52 @@
                     <table id="example1" class="table table-bordered table-striped">
                         <thead>
                             <tr>
-                                <th>Rendering engine</th>
-                                <th>Browser</th>
-                                <th>Platform(s)</th>
-                                <th>Engine version</th>
+                                <th>#</th>
+                                <th>design title</th>
+                                <th>design image</th>
+                                <th>price per square meter</th>
                                 <th>#</th>
                             </tr>
                         </thead>
                         <tbody>
+                            <?php foreach ($records as $key => $record): ?>
                             <tr>
-                                <td>Trident</td>
-                                <td>Internet
-                                    Explorer 4.0
-                                </td>
-                                <td>Win 95+</td>
-                                <td> 4</td>
+                                <td><?= $key + 1 ?></td>
+                                <td><?= $record['design_title'] ?></td>
+                                <td><img width="200px" src="<?= base_url('writable/uploads/') ?><?= $record['design_image'] ?>" alt=""></td>
+                                <td><?= $record['price_per_square_meter'] ?></td>
                                 <td>
-                                    <a href="<?= base_url('dashboard/settings/Designsprices/show/') ?>id">
+                                    <a href="<?= base_url('dashboard/settings/Designsprices/show/') ?><?= $record['design_price_id'] ?>">
                                         <button class="btn btn-xs btn-primary">
                                             <i class="fa fa-eye"></i> View
                                         </button>
                                     </a>
-                                    <a href="<?= base_url('dashboard/settings/Designsprices/update/') ?>id">
+                                    <a href="<?= base_url('dashboard/settings/Designsprices/update/') ?><?= $record['design_price_id'] ?>">
                                         <button class="btn btn-xs btn-warning">
                                             <i class="fa fa-edit"></i> Edit
                                         </button>
                                     </a>
-                                    <a href="<?= base_url('dashboard/settings/Designsprices/delete/') ?>id">
+                                    <a href="<?= base_url('dashboard/settings/Designsprices/delete/') ?><?= $record['design_price_id'] ?>">
                                         <button class="btn btn-xs btn-danger">
                                             <i class="fa fa-times"></i> Delete
                                         </button>
                                     </a>
                                 </td>
                             </tr>
+                            <?php endforeach;
+                            if (! $records) :
+                            ?>
+                                <tr>
+                                    <td colspan="5" class="text-center">There is no data to display.</td>
+                                </tr>
+                            <?php endif; ?>
                         </tbody>
                         <tfoot>
                             <tr>
-                                <th>Rendering engine</th>
-                                <th>Browser</th>
-                                <th>Platform(s)</th>
-                                <th>Engine version</th>
+                                <th>#</th>
+                                <th>design title</th>
+                                <th>design image</th>
+                                <th>price per square meter</th>
                                 <th>#</th>
                             </tr>
                         </tfoot>

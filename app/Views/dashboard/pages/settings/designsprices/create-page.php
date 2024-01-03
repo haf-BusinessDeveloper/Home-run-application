@@ -23,6 +23,20 @@
 <!-- Main content -->
 <section class="content">
     <div class="row">
+
+        <?php
+        $session = session();
+        $added_successfuly = $session->getFlashdata('added_successfuly');
+        if ($added_successfuly) : ?>
+            <div class="col-md-12">
+                <div class="alert alert-success alert-dismissible">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                    <h4><i class="icon fa fa-check"></i> Alert!</h4>
+                    Success inserted Data.
+                </div>
+            </div>
+        <?php endif; ?>
+
         <!-- left column -->
         <div class="col-md-7">
             <!-- general form elements -->
@@ -32,19 +46,19 @@
                 </div>
                 <!-- /.box-header -->
                 <!-- form start -->
-                <form role="form">
+                <form role="form" method="post" enctype="multipart/form-data">
                     <div class="box-body">
                         <div class="form-group">
                             <label for="design_title">Design title</label>
-                            <input type="text" class="form-control" name="design_title" id="design_title" placeholder="Enter design title">
+                            <input required type="text" class="form-control" name="design_title" id="design_title" placeholder="Enter design title">
                         </div>
                         <div class="form-group">
                             <label for="design_image">Design image</label>
-                            <input type="file" class="form-control" name="design_image" id="design_image">
+                            <input required type="file" class="form-control" name="design_image" id="design_image">
                         </div>
                         <div class="form-group">
                             <label for="price_per_square_meter">Price per square meter</label>
-                            <input type="text" class="form-control" name="price_per_square_meter" id="price_per_square_meter" placeholder="Enter Price per square meter">
+                            <input required type="text" class="form-control" name="price_per_square_meter" id="price_per_square_meter" placeholder="Enter Price per square meter">
                         </div>
                     </div>
                     <!-- /.box-body -->
@@ -60,7 +74,7 @@
         <!--/.col (left) -->
     </div>
     <!-- /.row -->
-    
+
 </section>
 <!-- /.content -->
 
