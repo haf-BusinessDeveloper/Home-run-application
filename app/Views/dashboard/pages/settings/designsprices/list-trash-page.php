@@ -11,12 +11,12 @@
 <!-- Content Header (Page header) -->
 <section class="content-header">
     <h1>
-        Room types Settings
+        Designs prices Settings
         <small>Trash</small>
     </h1>
     <ol class="breadcrumb">
         <li><a href="<?= base_url('dashboard') ?>"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li><a href="<?= base_url('dashboard') ?>">Room types Settings</a></li>
+        <li><a href="<?= base_url('dashboard') ?>">Designs prices Settings</a></li>
         <li class="active">Trash</li>
     </ol>
 </section>

@@ -11,12 +11,12 @@
 <!-- Content Header (Page header) -->
 <section class="content-header">
     <h1>
-        Room types Settings
+        Designs prices Settings
         <small>List</small>
     </h1>
     <ol class="breadcrumb">
         <li><a href="<?= base_url('dashboard') ?>"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li><a href="<?= base_url('dashboard') ?>">Room types Settings</a></li>
+        <li><a href="<?= base_url('dashboard') ?>">Designs prices Settings</a></li>
         <li class="active">List</li>
     </ol>
 </section>
@@ -52,17 +52,17 @@
                                 <td>Win 95+</td>
                                 <td> 4</td>
                                 <td>
-                                    <a href="<?= base_url('dashboard/settings/roomtypes/show/') ?>id">
+                                    <a href="<?= base_url('dashboard/settings/Designsprices/show/') ?>id">
                                         <button class="btn btn-xs btn-primary">
                                             <i class="fa fa-eye"></i> View
                                         </button>
                                     </a>
-                                    <a href="<?= base_url('dashboard/settings/roomtypes/update/') ?>id">
+                                    <a href="<?= base_url('dashboard/settings/Designsprices/update/') ?>id">
                                         <button class="btn btn-xs btn-warning">
                                             <i class="fa fa-edit"></i> Edit
                                         </button>
                                     </a>
-                                    <a href="<?= base_url('dashboard/settings/roomtypes/delete/') ?>id">
+                                    <a href="<?= base_url('dashboard/settings/Designsprices/delete/') ?>id">
                                         <button class="btn btn-xs btn-danger">
                                             <i class="fa fa-times"></i> Delete
                                         </button>

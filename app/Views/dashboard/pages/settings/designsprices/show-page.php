@@ -10,12 +10,12 @@
 <!-- Content Header (Page header) -->
 <section class="content-header">
     <h1>
-        Room types Settings
+        Designs prices Settings
         <small>Show</small>
     </h1>
     <ol class="breadcrumb">
         <li><a href="<?= base_url('dashboard') ?>"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li><a href="<?= base_url('dashboard') ?>">Room types Settings</a></li>
+        <li><a href="<?= base_url('dashboard') ?>">Designs prices Settings</a></li>
         <li class="active">Show</li>
     </ol>
 </section>
@@ -28,15 +28,23 @@
             <!-- general form elements -->
             <div class="box box-primary">
                 <div class="box-header with-border">
-                    <h3 class="box-title">Show room type data</h3>
+                    <h3 class="box-title">Show design price data</h3>
                 </div>
                 <!-- /.box-header -->
                 <!-- form start -->
 
                 <div class="box-body">
                     <div class="form-group">
-                        <label for="room_type_title">room type title</label>
-                        <input type="text" class="form-control" name="room_type_title" id="room_type_title" placeholder="Enter room type title">
+                        <label for="design_title">Design title</label>
+                        <input type="text" class="form-control" name="design_title" id="design_title" placeholder="Enter design title">
+                    </div>
+                    <div class="form-group">
+                        <label for="design_image">Design image</label>
+                        <input type="file" class="form-control" name="design_image" id="design_image">
+                    </div>
+                    <div class="form-group">
+                        <label for="price_per_square_meter">Price per square meter</label>
+                        <input type="text" class="form-control" name="price_per_square_meter" id="price_per_square_meter" placeholder="Enter Price per square meter">
                     </div>
                 </div>
                 <!-- /.box-body -->
