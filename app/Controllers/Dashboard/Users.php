@@ -4,15 +4,24 @@ namespace App\Controllers\Dashboard;
 
 use App\Controllers\BaseController;
 
+use App\Models\UserModel;
+
 class Users extends BaseController
 {
-    public function index()
-    {
-        return view('dashboard/pages/users/home-page');
-    }
+    // public function index()
+    // {
+    //     return view('dashboard/pages/users/home-page');
+    // }
     
     public function create()
     {
+        $dataPosted = $this->request->getPost();
+        if($dataPosted){
+            $UserModel = new UserModel();
+            $UserModel->insert($dataPosted);
+            $session = session();
+            $session->setFlashdata('added_successfuly', 'true');
+        }
         return view('dashboard/pages/users/create-page');
     }
     
@@ -22,7 +31,9 @@ class Users extends BaseController
             # code...
             return redirect()->back();
         }
-        return view('dashboard/pages/users/show-page');
+        $UserModel = new UserModel();
+        $data['record'] = $UserModel->find($id);
+        return view('dashboard/pages/users/show-page', $data);
     }
     
     
@@ -32,7 +43,18 @@ class Users extends BaseController
             # code...
             return redirect()->back();
         }
-        return view('dashboard/pages/users/update-page');
+        $dataPosted = $this->request->getPost();
+        $UserModel = new UserModel();
+        if($dataPosted){
+            if(! isset($dataPosted['is_whats_available'])){
+                $dataPosted['is_whats_available'] = null;
+            }
+            $UserModel->update($id, $dataPosted);
+            $session = session();
+            $session->setFlashdata('updated_successfuly', 'true');
+        }
+        $data['record'] = $UserModel->find($id);
+        return view('dashboard/pages/users/update-page', $data);
     }
     
     
@@ -42,13 +64,21 @@ class Users extends BaseController
             # code...
             return redirect()->back();
         }
-        return view('dashboard/pages/users/show-page');
+        if($id){
+            $UserModel = new UserModel();
+            $UserModel->delete($id);
+            $session = session();
+            $session->setFlashdata('deleted_successfuly', 'true');
+        }
+        return redirect()->to('dashboard/users/list');
     }
     
     
     public function list()
     {
-        return view('dashboard/pages/users/list-page');
+        $UserModel = new UserModel();
+        $data['records'] = $UserModel->findAll();
+        return view('dashboard/pages/users/list-page', $data);
     }
     
     public function trash()

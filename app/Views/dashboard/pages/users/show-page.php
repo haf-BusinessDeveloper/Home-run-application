@@ -32,51 +32,40 @@
                 </div>
                 <!-- /.box-header -->
                 <!-- form start -->
-                    <div class="box-body">
-                        <div class="form-group">
-                            <label for="full_name">Full Name</label>
-                            <input type="text" class="form-control" name="full_name" id="full_name" placeholder="Enter Full Name">
-                        </div>
-                        <div class="form-group">
-                            <label for="national_id">National ID</label>
-                            <input type="text" class="form-control" name="national_id" id="national_id" placeholder="Enter National ID">
-                        </div>
-                        <div class="form-group">
-                            <label for="phone_number">Phone Number</label>
-                            <input type="text" class="form-control" name="phone_number" id="phone_number" placeholder="Enter Phone Number">
-                        </div>
-                        <div class="form-group">
-                            <label for="address">Address</label>
-                            <textarea type="text" class="form-control" name="address" id="address" placeholder="Enter Address"></textarea>
-                        </div>
-                        <div class="form-group">
-                            <label for="is_whats_available">
-                                <input type="checkbox" name="is_whats_available" id="is_whats_available">
-                                Is Whats available?</label>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="user_email" class="control-label">Email</label>
-                            <input type="email" class="form-control" name="user_email" placeholder="Email">
-                        </div>
-                        <div class="form-group">
-                            <label for="password" class="control-label">Password</label>
-                            <input type="password" class="form-control" name="password" placeholder="Password">
-                        </div>
-
-                        <!-- select -->
-                        <div class="form-group">
-                            <label for="user_status">User Status</label>
-                            <select required name="user_status" id="user_status" class="form-control">
-                                <option value="">Choose</option>
-                                <option value="1">Active</option>
-                                <option value="0">Not Active</option>
-                                <option>option 4</option>
-                                <option>option 5</option>
-                            </select>
-                        </div>
+                <div class="box-body">
+                    <div class="form-group">
+                        <label for="full_name">Full Name</label>
+                        <input disabled value="<?= $record['full_name'] ?>" type="text" class="form-control" name="full_name" id="full_name" placeholder="Enter Full Name">
                     </div>
-                    <!-- /.box-body -->
+                    <div class="form-group">
+                        <label for="national_id">National ID</label>
+                        <input disabled value="<?= $record['national_id'] ?>" type="text" class="form-control" name="national_id" id="national_id" placeholder="Enter National ID">
+                    </div>
+                    <div class="form-group">
+                        <label for="phone_number">Phone Number</label>
+                        <input disabled value="<?= $record['phone_number'] ?>" type="text" class="form-control" name="phone_number" id="phone_number" placeholder="Enter Phone Number">
+                    </div>
+                    <div class="form-group">
+                        <label for="address">Address</label>
+                        <textarea disabled type="text" class="form-control" name="address" id="address" placeholder="Enter Address"><?= $record['address'] ?></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="is_whats_available">
+                            <input disabled <?= ($record['is_whats_available'] == '1') ? 'checked' : '' ?> value="1" type="checkbox" name="is_whats_available" id="is_whats_available">
+                            Is Whats available?</label>
+                    </div>
+
+                    <!-- select -->
+                    <div class="form-group">
+                        <label for="user_status">User Status</label>
+                        <select disabled name="user_status" id="user_status" class="form-control">
+                            <option value="">Choose</option>
+                            <option <?= ($record['user_status'] == '1') ? 'selected' : '' ?> value="1">Active</option>
+                            <option <?= ($record['user_status'] == '0') ? 'selected' : '' ?> value="0">Not Active</option>
+                        </select>
+                    </div>
+                </div>
+                <!-- /.box-body -->
 
             </div>
             <!-- /.box -->
@@ -85,7 +74,7 @@
         <!--/.col (left) -->
     </div>
     <!-- /.row -->
-    
+
 </section>
 <!-- /.content -->
 
