@@ -62,3 +62,21 @@ in SYSTEMPATH\Exceptions\FrameworkException.php on line 33.
  5 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard\Settings\Roomtypes))
  6 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
  7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-01-03 16:20:40 --> Invalid file: "dashboard/pages/settings/services/list-page.php"
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 33.
+ 1 SYSTEMPATH\View\View.php(201): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('dashboard/pages/settings/services/list-page.php')
+ 2 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('dashboard/pages/settings/services/list-page', [], true)
+ 3 APPPATH\Controllers\Dashboard\Settings\Services.php(51): view('dashboard/pages/settings/services/list-page')
+ 4 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Dashboard\Settings\Services->list()
+ 5 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard\Settings\Services))
+ 6 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-01-03 16:32:48 --> Invalid file: "dashboard/pages/settings/designsprices/create-page.php"
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 33.
+ 1 SYSTEMPATH\View\View.php(201): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('dashboard/pages/settings/designsprices/create-page.php')
+ 2 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('dashboard/pages/settings/designsprices/create-page', [], true)
+ 3 APPPATH\Controllers\Dashboard\Settings\Designsprices.php(16): view('dashboard/pages/settings/designsprices/create-page')
+ 4 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Dashboard\Settings\Designsprices->create()
+ 5 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard\Settings\Designsprices))
+ 6 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
