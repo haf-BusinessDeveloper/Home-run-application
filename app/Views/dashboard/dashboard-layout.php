@@ -157,11 +157,11 @@
                   <i class="fa fa-list"></i> List
                 </a>
               </li>
-              <li class="<?= (url_is('dashboard/users/trash'))? 'active': '' ?>">
+              <!-- <li class="<?= (url_is('dashboard/users/trash'))? 'active': '' ?>">
                 <a href="<?= base_url() ?>dashboard/users/trash">
                   <i class="fa fa-trash"></i> Trash
                 </a>
-              </li>
+              </li> -->
             </ul>
           </li>
           
@@ -186,11 +186,11 @@
                   <i class="fa fa-list"></i> List
                 </a>
               </li>
-              <li class="<?= (url_is('dashboard/orders/trash'))? 'active': '' ?>">
+              <!-- <li class="<?= (url_is('dashboard/orders/trash'))? 'active': '' ?>">
                 <a href="<?= base_url() ?>dashboard/orders/trash">
                   <i class="fa fa-trash"></i> Trash
                 </a>
-              </li>
+              </li> -->
             </ul>
           </li>
           
@@ -215,11 +215,11 @@
                   <i class="fa fa-list"></i> List
                 </a>
               </li>
-              <li class="<?= (url_is('dashboard/contracts/trash'))? 'active': '' ?>">
+              <!-- <li class="<?= (url_is('dashboard/contracts/trash'))? 'active': '' ?>">
                 <a href="<?= base_url() ?>dashboard/contracts/trash">
                   <i class="fa fa-trash"></i> Trash
                 </a>
-              </li>
+              </li> -->
             </ul>
           </li>
           
@@ -244,11 +244,11 @@
                   <i class="fa fa-list"></i> List
                 </a>
               </li>
-              <li class="<?= (url_is('dashboard/technicians/trash'))? 'active': '' ?>">
+              <!-- <li class="<?= (url_is('dashboard/technicians/trash'))? 'active': '' ?>">
                 <a href="<?= base_url() ?>dashboard/technicians/trash">
                   <i class="fa fa-trash"></i> Trash
                 </a>
-              </li>
+              </li> -->
             </ul>
           </li>
 
@@ -275,11 +275,11 @@
                   <i class="fa fa-list"></i> List
                 </a>
               </li>
-              <li class="<?= (url_is('dashboard/settings/roomtypes/trash'))? 'active': '' ?>">
+              <!-- <li class="<?= (url_is('dashboard/settings/roomtypes/trash'))? 'active': '' ?>">
                 <a href="<?= base_url() ?>dashboard/settings/roomtypes/trash">
                   <i class="fa fa-trash"></i> Trash
                 </a>
-              </li>
+              </li> -->
             </ul>
           </li>
 
@@ -305,11 +305,11 @@
                   <i class="fa fa-list"></i> List
                 </a>
               </li>
-              <li class="<?= (url_is('dashboard/settings/Designsprices/trash'))? 'active': '' ?>">
+              <!-- <li class="<?= (url_is('dashboard/settings/Designsprices/trash'))? 'active': '' ?>">
                 <a href="<?= base_url() ?>dashboard/settings/Designsprices/trash">
                   <i class="fa fa-trash"></i> Trash
                 </a>
-              </li>
+              </li> -->
             </ul>
           </li>
 
@@ -337,11 +337,11 @@
                   <i class="fa fa-list"></i> List
                 </a>
               </li>
-              <li class="<?= (url_is('dashboard/settings/services/trash'))? 'active': '' ?>">
+              <!-- <li class="<?= (url_is('dashboard/settings/services/trash'))? 'active': '' ?>">
                 <a href="<?= base_url() ?>dashboard/settings/services/trash">
                   <i class="fa fa-trash"></i> Trash
                 </a>
-              </li>
+              </li> -->
             </ul>
           </li>
 
