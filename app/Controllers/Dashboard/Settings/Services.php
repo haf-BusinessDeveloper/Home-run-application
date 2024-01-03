@@ -4,15 +4,25 @@ namespace App\Controllers\Dashboard\Settings;
 
 use App\Controllers\BaseController;
 
+use App\Models\ServiceModel;
+
 class Services extends BaseController
 {
-    public function index()
-    {
-        return view('dashboard/pages/settings/services/home-page');
-    }
+    // public function index()
+    // {
+    //     return view('dashboard/pages/settings/services/home-page');
+    // }
     
     public function create()
     {
+        $dataPosted = $this->request->getPost();
+        if($dataPosted){
+            var_dump($dataPosted);
+            $ServiceModel = new ServiceModel();
+            $ServiceModel->insert($dataPosted);
+            $session = session();
+            $session->setFlashdata('added_successfuly', 'true');
+        }
         return view('dashboard/pages/settings/services/create-page');
     }
     
@@ -22,7 +32,9 @@ class Services extends BaseController
             # code...
             return redirect()->back();
         }
-        return view('dashboard/pages/settings/services/show-page');
+        $ServiceModel = new ServiceModel();
+        $data['record'] = $ServiceModel->find($id);
+        return view('dashboard/pages/settings/services/show-page', $data);
     }
     
     
@@ -32,7 +44,15 @@ class Services extends BaseController
             # code...
             return redirect()->back();
         }
-        return view('dashboard/pages/settings/services/update-page');
+        $dataPosted = $this->request->getPost();
+        $ServiceModel = new ServiceModel();
+        if($dataPosted){
+            $ServiceModel->update($id, $dataPosted);
+            $session = session();
+            $session->setFlashdata('updated_successfuly', 'true');
+        }
+        $data['record'] = $ServiceModel->find($id);
+        return view('dashboard/pages/settings/services/update-page', $data);
     }
     
     
@@ -42,13 +62,21 @@ class Services extends BaseController
             # code...
             return redirect()->back();
         }
-        return view('dashboard/pages/settings/services/show-page');
+        if($id){
+            $ServiceModel = new ServiceModel();
+            $ServiceModel->delete($id);
+            $session = session();
+            $session->setFlashdata('deleted_successfuly', 'true');
+        }
+        return redirect()->to('dashboard/settings/services/list');
     }
     
     
     public function list()
     {
-        return view('dashboard/pages/settings/services/list-page');
+        $ServiceModel = new ServiceModel();
+        $data['records'] = $ServiceModel->findAll();
+        return view('dashboard/pages/settings/services/list-page', $data);
     }
     
     public function trash()

@@ -35,8 +35,8 @@
 
                 <div class="box-body">
                     <div class="form-group">
-                        <label for="room_type_title">service title</label>
-                        <input type="text" class="form-control" name="room_type_title" id="room_type_title" placeholder="Enter service title">
+                            <label for="service_title">service title</label>
+                            <input disabled value="<?= $record['service_title'] ?>" type="text" class="form-control" name="service_title" id="service_title" placeholder="Enter room type title">
                     </div>
                 </div>
                 <!-- /.box-body -->

@@ -192,3 +192,91 @@ INFO - 2024-01-03 19:21:47 --> Session: Class initialized using 'CodeIgniter\Ses
 INFO - 2024-01-03 19:21:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 INFO - 2024-01-03 19:22:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 INFO - 2024-01-03 19:22:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-01-03 19:25:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-01-03 19:26:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-01-03 19:26:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-01-03 19:27:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-01-03 19:27:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-01-03 19:28:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-01-03 19:28:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-01-03 19:29:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-01-03 19:29:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-01-03 19:30:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-01-03 19:30:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-01-03 19:32:30 --> Undefined variable $records
+in APPPATH\Views\dashboard\pages\settings\services\list-page.php on line 45.
+ 1 APPPATH\Views\dashboard\pages\settings\services\list-page.php(45): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $records', 'C:\\xampp\\htdocs\\github\\Home-run-application\\app\\Views\\dashboard\\pages\\settings\\services\\list-page.php', 45)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\github\\Home-run-application\\app\\Views\\dashboard\\pages\\settings\\services\\list-page.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('dashboard/pages/settings/services/list-page', [], true)
+ 5 APPPATH\Controllers\Dashboard\Settings\Services.php(61): view('dashboard/pages/settings/services/list-page')
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Dashboard\Settings\Services->list()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard\Settings\Services))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2024-01-03 19:33:14 --> mysqli_sql_exception: Unknown column 'services_table.deleted_at' in 'where clause' in C:\xampp\htdocs\github\Home-run-application\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\github\Home-run-application\system\Database\MySQLi\Connection.php(295): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\xampp\htdocs\github\Home-run-application\system\Database\BaseConnection.php(691): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\xampp\htdocs\github\Home-run-application\system\Database\BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\xampp\htdocs\github\Home-run-application\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\github\Home-run-application\system\Model.php(241): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\github\Home-run-application\system\BaseModel.php(618): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\github\Home-run-application\app\Controllers\Dashboard\Settings\Services.php(62): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\github\Home-run-application\system\CodeIgniter.php(934): App\Controllers\Dashboard\Settings\Services->list()
+#8 C:\xampp\htdocs\github\Home-run-application\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard\Settings\Services))
+#9 C:\xampp\htdocs\github\Home-run-application\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\github\Home-run-application\index.php(67): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2024-01-03 19:33:14 --> Unknown column 'services_table.deleted_at' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('SELECT *
+FROM `services_table`
+WHERE `services_table`.`deleted_at` IS NULL', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(691): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `services_table`
+WHERE `services_table`.`deleted_at` IS NULL')
+ 3 SYSTEMPATH\Database\BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `services_table`
+WHERE `services_table`.`deleted_at` IS NULL')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `services_table`
+WHERE `services_table`.`deleted_at` IS NULL', [], false)
+ 5 SYSTEMPATH\Model.php(241): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(618): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Controllers\Dashboard\Settings\Services.php(62): CodeIgniter\BaseModel->findAll()
+ 8 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Dashboard\Settings\Services->list()
+ 9 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard\Settings\Services))
+10 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-01-03 19:34:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-01-03 19:34:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-01-03 19:37:23 --> Undefined variable $record
+in APPPATH\Views\dashboard\pages\settings\services\show-page.php on line 39.
+ 1 APPPATH\Views\dashboard\pages\settings\services\show-page.php(39): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $record', 'C:\\xampp\\htdocs\\github\\Home-run-application\\app\\Views\\dashboard\\pages\\settings\\services\\show-page.php', 39)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\github\\Home-run-application\\app\\Views\\dashboard\\pages\\settings\\services\\show-page.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('dashboard/pages/settings/services/show-page', [], true)
+ 5 APPPATH\Controllers\Dashboard\Settings\Services.php(35): view('dashboard/pages/settings/services/show-page')
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Dashboard\Settings\Services->show('2')
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard\Settings\Services))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-01-03 19:37:45 --> Undefined variable $record
+in APPPATH\Views\dashboard\pages\settings\services\show-page.php on line 39.
+ 1 APPPATH\Views\dashboard\pages\settings\services\show-page.php(39): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $record', 'C:\\xampp\\htdocs\\github\\Home-run-application\\app\\Views\\dashboard\\pages\\settings\\services\\show-page.php', 39)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\github\\Home-run-application\\app\\Views\\dashboard\\pages\\settings\\services\\show-page.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('dashboard/pages/settings/services/show-page', [], true)
+ 5 APPPATH\Controllers\Dashboard\Settings\Services.php(37): view('dashboard/pages/settings/services/show-page')
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Dashboard\Settings\Services->show('2')
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard\Settings\Services))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-01-03 19:38:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-01-03 19:38:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-01-03 19:39:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-01-03 19:39:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-01-03 19:40:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-01-03 19:40:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-01-03 19:40:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.

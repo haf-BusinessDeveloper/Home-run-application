@@ -25,6 +25,20 @@
 <section class="content">
 
     <div class="row">
+
+        <?php
+        $session = session();
+        $deleted_successfuly = $session->getFlashdata('deleted_successfuly');
+        if ($deleted_successfuly) : ?>
+            <div class="col-md-12">
+                <div class="alert alert-danger alert-dismissible">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                    <h4><i class="icon fa fa-ban"></i> Alert!</h4>
+                    data deleted successfuly !
+                </div>
+            </div>
+        <?php endif; ?>
+
         <div class="col-xs-12">
 
             <div class="box">
@@ -36,46 +50,46 @@
                     <table id="example1" class="table table-bordered table-striped">
                         <thead>
                             <tr>
-                                <th>Rendering engine</th>
-                                <th>Browser</th>
-                                <th>Platform(s)</th>
-                                <th>Engine version</th>
+                                <th>#</th>
+                                <th>service title</th>
                                 <th>#</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>Trident</td>
-                                <td>Internet
-                                    Explorer 4.0
-                                </td>
-                                <td>Win 95+</td>
-                                <td> 4</td>
-                                <td>
-                                    <a href="<?= base_url('dashboard/settings/services/show/') ?>id">
-                                        <button class="btn btn-xs btn-primary">
-                                            <i class="fa fa-eye"></i> View
-                                        </button>
-                                    </a>
-                                    <a href="<?= base_url('dashboard/settings/services/update/') ?>id">
-                                        <button class="btn btn-xs btn-warning">
-                                            <i class="fa fa-edit"></i> Edit
-                                        </button>
-                                    </a>
-                                    <a href="<?= base_url('dashboard/settings/services/delete/') ?>id">
-                                        <button class="btn btn-xs btn-danger">
-                                            <i class="fa fa-times"></i> Delete
-                                        </button>
-                                    </a>
-                                </td>
-                            </tr>
+                            <?php foreach ($records as $key => $record) : ?>
+                                <tr>
+                                    <td>#</td>
+                                    <td><?= $record['service_title'] ?></td>
+                                    <td>
+                                        <a href="<?= base_url('dashboard/settings/services/show/') ?><?= $record['service_id'] ?>">
+                                            <button class="btn btn-xs btn-primary">
+                                                <i class="fa fa-eye"></i> View
+                                            </button>
+                                        </a>
+                                        <a href="<?= base_url('dashboard/settings/services/update/') ?><?= $record['service_id'] ?>">
+                                            <button class="btn btn-xs btn-warning">
+                                                <i class="fa fa-edit"></i> Edit
+                                            </button>
+                                        </a>
+                                        <a href="<?= base_url('dashboard/settings/services/delete/') ?><?= $record['service_id'] ?>">
+                                            <button class="btn btn-xs btn-danger">
+                                                <i class="fa fa-times"></i> Delete
+                                            </button>
+                                        </a>
+                                    </td>
+                                </tr>
+                            <?php endforeach;
+                            if (!$records) :
+                            ?>
+                                <tr>
+                                    <td colspan="3" class="text-center">There is no data to display.</td>
+                                </tr>
+                            <?php endif; ?>
                         </tbody>
                         <tfoot>
                             <tr>
-                                <th>Rendering engine</th>
-                                <th>Browser</th>
-                                <th>Platform(s)</th>
-                                <th>Engine version</th>
+                                <th>#</th>
+                                <th>service title</th>
                                 <th>#</th>
                             </tr>
                         </tfoot>
