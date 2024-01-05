@@ -37,21 +37,27 @@
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label for="client_full_name">Full Name</label>
-                                <input type="text" class="form-control" name="client_full_name" id="client_full_name" placeholder="Enter Full Name">
+                                <!-- <input type="text" class="form-control" name="client_full_name" id="client_full_name" placeholder="Enter Full Name"> -->
+                                <select onchange="getClientById()" required name="client_full_name" id="client_full_name" class="form-control">
+                                    <option value="">Choose ...</option>
+                                    <?php foreach ($clients_list as $key => $client) { ?>
+                                        <option value="<?= $client['user_id'] ?>"><?= $client['full_name'] ?></option>
+                                    <?php } ?>
+                                </select>
                             </div>
                         </div>
 
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="client_email" class="control-label">Client Email</label>
-                                <input type="email" class="form-control" name="client_email" placeholder="Client Email">
+                                <input readonly type="email" class="form-control" name="client_email" id="client_email" placeholder="Client Email">
                             </div>
                         </div>
 
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="client_phone_number" class="control-label">Client Phone Number</label>
-                                <input type="text" class="form-control" name="client_phone_number" placeholder="Client Phone Number">
+                                <input readonly type="text" class="form-control" name="client_phone_number" id="client_phone_number" placeholder="Client Phone Number">
                             </div>
                         </div>
                     </div>
@@ -82,10 +88,9 @@
                                 <label for="real_estate_unit_type">Real Estate Unit Type</label>
                                 <select required name="real_estate_unit_type" id="real_estate_unit_type" class="form-control">
                                     <option value="">Choose</option>
-                                    <option value="1">Active</option>
-                                    <option value="0">Not Active</option>
-                                    <option>option 4</option>
-                                    <option>option 5</option>
+                                    <option value="Appartment">Appartment</option>
+                                    <option value="Villa">Villa</option>
+                                    <option value="House">House</option>
                                 </select>
                             </div>
                         </div>
@@ -166,8 +171,8 @@
                 <div class="box-header with-border">
                     <h3 class="box-title">Room Type [ bedroom ] -
                         <div style="margin-top: 10px;">
-                        <input type="text" name="length" id="length" placeholder="length" style="width: 80px;"> X
-                        <input type="text" name="width" id="width" placeholder="width" style="width: 80px;"> X <input type="text" name="height" id="height" placeholder="height" style="width: 80px;">
+                            <input type="text" name="length" id="length" placeholder="length" style="width: 80px;"> X
+                            <input type="text" name="width" id="width" placeholder="width" style="width: 80px;"> X <input type="text" name="height" id="height" placeholder="height" style="width: 80px;">
                         </div>
                     </h3>
                 </div>
@@ -278,29 +283,29 @@
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label for="total_unit_finishing_cost">Total unit finishing cost</label>
-                            <input type="text" class="form-control" name="total_unit_finishing_cost" id="total_unit_finishing_cost" placeholder="Enter total unit finishing cost">
+                                <input type="text" class="form-control" name="total_unit_finishing_cost" id="total_unit_finishing_cost" placeholder="Enter total unit finishing cost">
+                            </div>
                         </div>
-                        </div>
-                        
+
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label for="proposed_deadline_for_deleivery">Deadline</label>
                                 <input type="date" class="form-control" name="proposed_deadline_for_deleivery" id="proposed_deadline_for_deleivery" placeholder="Enter proposed deadline for deleivery">
                             </div>
                         </div>
-                        
+
                         <div class="col-md-4">
-                        <!-- select -->
-                        <div class="form-group">
-                            <label for="preferred_payment_method">Preferred Payment Method</label>
-                            <select required name="preferred_payment_method" id="preferred_payment_method" class="form-control">
-                                <option value="">Choose</option>
-                                <option value="1">Active</option>
-                                <option value="0">Not Active</option>
-                                <option>option 4</option>
-                                <option>option 5</option>
-                            </select>
-                        </div>
+                            <!-- select -->
+                            <div class="form-group">
+                                <label for="preferred_payment_method">Preferred Payment Method</label>
+                                <select required name="preferred_payment_method" id="preferred_payment_method" class="form-control">
+                                    <option value="">Choose</option>
+                                    <option value="1">Active</option>
+                                    <option value="0">Not Active</option>
+                                    <option>option 4</option>
+                                    <option>option 5</option>
+                                </select>
+                            </div>
                         </div>
 
                         <div class="form-group">
@@ -313,17 +318,17 @@
                             <textarea type="text" class="form-control" name="order_details" id="order_details"></textarea>
                         </div>
                         <div class="col-md-3">
-                        <!-- select -->
-                        <div class="form-group">
-                            <label for="order_status">Order Status</label>
-                            <select required name="order_status" id="order_status" class="form-control">
-                                <option value="">Choose</option>
-                                <option value="1">Active</option>
-                                <option value="0">Not Active</option>
-                                <option>option 4</option>
-                                <option>option 5</option>
-                            </select>
-                        </div>
+                            <!-- select -->
+                            <div class="form-group">
+                                <label for="order_status">Order Status</label>
+                                <select required name="order_status" id="order_status" class="form-control">
+                                    <option value="">Choose</option>
+                                    <option value="1">Active</option>
+                                    <option value="0">Not Active</option>
+                                    <option>option 4</option>
+                                    <option>option 5</option>
+                                </select>
+                            </div>
                         </div>
 
 
@@ -347,5 +352,17 @@
 <?= $this->endSection() ?>
 
 <?= $this->section('js-scripts') ?>
-
+<script src="<?= base_url('public/js/axios/axios.js') ?>"></script>
+<script src="<?= base_url('public/js/vue/vue.js') ?>"></script>
+<script>
+    function getClientById() {
+        let client_full_name_el = document.getElementById("client_full_name")
+        id = client_full_name_el.value;
+        axios.get(`<?= base_url() ?>/api/Users/getClientById/${id}`).then(res => {
+            console.log(res)
+            document.getElementById("client_phone_number").value = res.data.phone_number;
+            document.getElementById("client_email").value = res.data.user_email;
+        });
+    }
+</script>
 <?= $this->endSection() ?>
