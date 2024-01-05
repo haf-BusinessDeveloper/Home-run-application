@@ -25,6 +25,19 @@
 <section class="content">
 
     <div class="row">
+
+        <?php
+        $session = session();
+        $deleted_successfuly = $session->getFlashdata('deleted_successfuly');
+        if ($deleted_successfuly) : ?>
+            <div class="col-md-12">
+                <div class="alert alert-danger alert-dismissible">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                    <h4><i class="icon fa fa-ban"></i> Alert!</h4>
+                    data deleted successfuly !
+                </div>
+            </div>
+        <?php endif; ?>
         <div class="col-xs-12">
 
             <div class="box">
@@ -36,46 +49,70 @@
                     <table id="example1" class="table table-bordered table-striped">
                         <thead>
                             <tr>
-                                <th>Rendering engine</th>
-                                <th>Browser</th>
-                                <th>Platform(s)</th>
-                                <th>Engine version</th>
+                                <th>#</th>
+                                <th>Full Name</th>
+                                <th>Phone</th>
+                                <th>is whats available?</th>
+                                <th>Email</th>
+                                <th>Status</th>
                                 <th>#</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>Trident</td>
-                                <td>Internet
-                                    Explorer 4.0
-                                </td>
-                                <td>Win 95+</td>
-                                <td> 4</td>
-                                <td>
-                                    <a href="<?= base_url('dashboard/technicians/show/') ?>id">
-                                        <button class="btn btn-xs btn-primary">
-                                            <i class="fa fa-eye"></i> View
-                                        </button>
-                                    </a>
-                                    <a href="<?= base_url('dashboard/technicians/update/') ?>id">
-                                        <button class="btn btn-xs btn-warning">
-                                            <i class="fa fa-edit"></i> Edit
-                                        </button>
-                                    </a>
-                                    <a href="<?= base_url('dashboard/technicians/delete/') ?>id">
-                                        <button class="btn btn-xs btn-danger">
-                                            <i class="fa fa-times"></i> Delete
-                                        </button>
-                                    </a>
-                                </td>
-                            </tr>
+                            <?php foreach ($records as $key => $record) : ?>
+                                <tr>
+                                    <td><?= $key + 1 ?></td>
+                                    <td><?= $record['full_name'] ?></td>
+                                    <td><?= $record['phone_number'] ?></td>
+                                    <td class="text-center">
+                                        <?php if ($record['is_whats_available']) { ?>
+                                            <i class="fa fa-check-circle-o fa-2x text-success"></i>
+                                        <?php } else { ?>
+                                            <i class="fa fa-times-circle fa-2x text-danger"></i>
+                                        <?php } ?>
+                                    </td>
+                                    <td><?= $record['technician_email'] ?></td>
+                                    <td>
+                                        <?php if ($record['technician_status'] == '1') { ?>
+                                            <span class="badge bg-green">Active</span>
+                                        <?php } else { ?>
+                                            <span class="badge bg-red">Not Active</span>
+                                        <?php } ?>
+                                    </td>
+                                    <td>
+                                        <a href="<?= base_url('dashboard/technicians/show/') ?><?= $record['technician_id'] ?>">
+                                            <button class="btn btn-xs btn-primary">
+                                                <i class="fa fa-eye"></i> View
+                                            </button>
+                                        </a>
+                                        <a href="<?= base_url('dashboard/technicians/update/') ?><?= $record['technician_id'] ?>">
+                                            <button class="btn btn-xs btn-warning">
+                                                <i class="fa fa-edit"></i> Edit
+                                            </button>
+                                        </a>
+                                        <a href="<?= base_url('dashboard/technicians/delete/') ?><?= $record['technician_id'] ?>">
+                                            <button class="btn btn-xs btn-danger">
+                                                <i class="fa fa-times"></i> Delete
+                                            </button>
+                                        </a>
+                                    </td>
+                                </tr>
+                            <?php endforeach;
+                            if (!$records) :
+                            ?>
+                                <tr>
+                                    <td colspan="7" class="text-center">There is no data to display.</td>
+                                </tr>
+                            <?php endif; ?>
                         </tbody>
                         <tfoot>
                             <tr>
-                                <th>Rendering engine</th>
-                                <th>Browser</th>
-                                <th>Platform(s)</th>
-                                <th>Engine version</th>
+                                <th>#</th>
+                                <th>Full Name</th>
+                                <th>Phone</th>
+                                <th>is whats available?</th>
+                                <th>Email</th>
+                                <th>Status</th>
                                 <th>#</th>
                             </tr>
                         </tfoot>

@@ -4,15 +4,24 @@ namespace App\Controllers\Dashboard;
 
 use App\Controllers\BaseController;
 
+use App\Models\TechnicianModel;
+
 class Technicians extends BaseController
 {
-    public function index()
-    {
-        return view('dashboard/pages/technicians/home-page');
-    }
+    // public function index()
+    // {
+    //     return view('dashboard/pages/technicians/home-page');
+    // }
     
     public function create()
     {
+        $dataPosted = $this->request->getPost();
+        if($dataPosted){
+            $TechnicianModel = new TechnicianModel();
+            $TechnicianModel->insert($dataPosted);
+            $session = session();
+            $session->setFlashdata('added_successfuly', 'true');
+        }
         return view('dashboard/pages/technicians/create-page');
     }
     
@@ -22,7 +31,9 @@ class Technicians extends BaseController
             # code...
             return redirect()->back();
         }
-        return view('dashboard/pages/technicians/show-page');
+        $TechnicianModel = new TechnicianModel();
+        $data['record'] = $TechnicianModel->find($id);
+        return view('dashboard/pages/technicians/show-page', $data);
     }
     
     
@@ -32,7 +43,18 @@ class Technicians extends BaseController
             # code...
             return redirect()->back();
         }
-        return view('dashboard/pages/technicians/update-page');
+        $dataPosted = $this->request->getPost();
+        $TechnicianModel = new TechnicianModel();
+        if($dataPosted){
+            if(! isset($dataPosted['is_whats_available'])){
+                $dataPosted['is_whats_available'] = null;
+            }
+            $TechnicianModel->update($id, $dataPosted);
+            $session = session();
+            $session->setFlashdata('updated_successfuly', 'true');
+        }
+        $data['record'] = $TechnicianModel->find($id);
+        return view('dashboard/pages/technicians/update-page', $data);
     }
     
     
@@ -42,13 +64,21 @@ class Technicians extends BaseController
             # code...
             return redirect()->back();
         }
-        return view('dashboard/pages/technicians/show-page');
+        if($id){
+            $TechnicianModel = new TechnicianModel();
+            $TechnicianModel->delete($id);
+            $session = session();
+            $session->setFlashdata('deleted_successfuly', 'true');
+        }
+        return redirect()->to('dashboard/technicians/list');
     }
     
     
     public function list()
     {
-        return view('dashboard/pages/technicians/list-page');
+        $TechnicianModel = new TechnicianModel();
+        $data['records'] = $TechnicianModel->findAll();
+        return view('dashboard/pages/technicians/list-page', $data);
     }
     
     public function trash()

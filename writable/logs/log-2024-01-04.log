@@ -1,0 +1,72 @@
+INFO - 2024-01-04 08:14:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-01-04 08:21:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-01-04 08:21:55 --> Undefined variable $records
+in APPPATH\Views\dashboard\pages\technicians\list-page.php on line 62.
+ 1 APPPATH\Views\dashboard\pages\technicians\list-page.php(62): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $records', 'C:\\xampp\\htdocs\\github\\Home-run-application\\app\\Views\\dashboard\\pages\\technicians\\list-page.php', 62)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\github\\Home-run-application\\app\\Views\\dashboard\\pages\\technicians\\list-page.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('dashboard/pages/technicians/list-page', [], true)
+ 5 APPPATH\Controllers\Dashboard\Technicians.php(74): view('dashboard/pages/technicians/list-page')
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Dashboard\Technicians->list()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard\Technicians))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-01-04 08:23:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-01-04 08:42:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-01-04 08:42:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-01-04 08:43:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-01-04 08:44:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-01-04 08:45:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-01-04 08:46:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-01-04 08:47:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-01-04 08:47:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-01-04 08:48:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-01-04 08:48:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-01-04 08:48:28 --> Undefined array key "user_email"
+in APPPATH\Views\dashboard\pages\technicians\list-page.php on line 74.
+ 1 APPPATH\Views\dashboard\pages\technicians\list-page.php(74): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "user_email"', 'C:\\xampp\\htdocs\\github\\Home-run-application\\app\\Views\\dashboard\\pages\\technicians\\list-page.php', 74)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\github\\Home-run-application\\app\\Views\\dashboard\\pages\\technicians\\list-page.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('dashboard/pages/technicians/list-page', [], true)
+ 5 APPPATH\Controllers\Dashboard\Technicians.php(81): view('dashboard/pages/technicians/list-page', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Dashboard\Technicians->list()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard\Technicians))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-01-04 08:49:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-01-04 08:49:10 --> Undefined array key "user_status"
+in APPPATH\Views\dashboard\pages\technicians\list-page.php on line 76.
+ 1 APPPATH\Views\dashboard\pages\technicians\list-page.php(76): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "user_status"', 'C:\\xampp\\htdocs\\github\\Home-run-application\\app\\Views\\dashboard\\pages\\technicians\\list-page.php', 76)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\github\\Home-run-application\\app\\Views\\dashboard\\pages\\technicians\\list-page.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('dashboard/pages/technicians/list-page', [], true)
+ 5 APPPATH\Controllers\Dashboard\Technicians.php(81): view('dashboard/pages/technicians/list-page', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Dashboard\Technicians->list()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard\Technicians))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-01-04 08:49:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-01-04 08:49:38 --> Undefined array key "user_id"
+in APPPATH\Views\dashboard\pages\technicians\list-page.php on line 83.
+ 1 APPPATH\Views\dashboard\pages\technicians\list-page.php(83): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "user_id"', 'C:\\xampp\\htdocs\\github\\Home-run-application\\app\\Views\\dashboard\\pages\\technicians\\list-page.php', 83)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\github\\Home-run-application\\app\\Views\\dashboard\\pages\\technicians\\list-page.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('dashboard/pages/technicians/list-page', [], true)
+ 5 APPPATH\Controllers\Dashboard\Technicians.php(81): view('dashboard/pages/technicians/list-page', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Dashboard\Technicians->list()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard\Technicians))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-01-04 08:50:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-01-04 08:50:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-01-04 08:53:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-01-04 08:53:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-01-04 08:53:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-01-04 08:53:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-01-04 08:53:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-01-04 08:54:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-01-04 08:55:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-01-04 08:55:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-01-04 08:56:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-01-04 08:56:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-01-04 08:56:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.

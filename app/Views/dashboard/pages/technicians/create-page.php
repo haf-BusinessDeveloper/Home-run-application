@@ -23,6 +23,19 @@
 <!-- Main content -->
 <section class="content">
     <div class="row">
+
+        <?php
+        $session = session();
+        $added_successfuly = $session->getFlashdata('added_successfuly');
+        if ($added_successfuly) : ?>
+            <div class="col-md-12">
+                <div class="alert alert-success alert-dismissible">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                    <h4><i class="icon fa fa-check"></i> Alert!</h4>
+                    Success inserted Data.
+                </div>
+            </div>
+        <?php endif; ?>
         <!-- left column -->
         <div class="col-md-7">
             <!-- general form elements -->
@@ -32,23 +45,23 @@
                 </div>
                 <!-- /.box-header -->
                 <!-- form start -->
-                <form role="form">
+                <form role="form" method="post">
                     <div class="box-body">
                         <div class="form-group">
                             <label for="full_name">Full Name</label>
-                            <input type="text" class="form-control" name="full_name" id="full_name" placeholder="Enter Full Name">
+                            <input required type="text" class="form-control" name="full_name" id="full_name" placeholder="Enter Full Name">
                         </div>
-                        <div class="form-group">
+                        <!-- <div class="form-group">
                             <label for="national_id">National ID</label>
                             <input type="text" class="form-control" name="national_id" id="national_id" placeholder="Enter National ID">
-                        </div>
+                        </div> -->
                         <div class="form-group">
                             <label for="phone_number">Phone Number</label>
-                            <input type="text" class="form-control" name="phone_number" id="phone_number" placeholder="Enter Phone Number">
+                            <input required type="text" class="form-control" name="phone_number" id="phone_number" placeholder="Enter Phone Number">
                         </div>
                         <div class="form-group">
                             <label for="address">Address</label>
-                            <textarea type="text" class="form-control" name="address" id="address" placeholder="Enter Address"></textarea>
+                            <textarea required type="text" class="form-control" name="address" id="address" placeholder="Enter Address"></textarea>
                         </div>
                         <div class="form-group">
                             <label for="is_whats_available">
@@ -58,12 +71,12 @@
 
                         <div class="form-group">
                             <label for="technician_email" class="control-label">Email</label>
-                            <input type="email" class="form-control" name="technician_email" placeholder="Email">
+                            <input required type="email" class="form-control" name="technician_email" placeholder="Email">
                         </div>
-                        <div class="form-group">
+                        <!-- <div class="form-group">
                             <label for="password" class="control-label">Password</label>
                             <input type="password" class="form-control" name="password" placeholder="Password">
-                        </div>
+                        </div> -->
 
                         <!-- select -->
                         <div class="form-group">
@@ -72,8 +85,6 @@
                                 <option value="">Choose</option>
                                 <option value="1">Active</option>
                                 <option value="0">Not Active</option>
-                                <option>option 4</option>
-                                <option>option 5</option>
                             </select>
                         </div>
                     </div>
@@ -89,14 +100,11 @@
         </div>
         <!--/.col (left) -->
         <!-- right column -->
-        <div class="col-md-5">
-            <!-- Change Password -->
+        <!-- <div class="col-md-5">
             <div class="box box-info">
                 <div class="box-header with-border">
                     <h3 class="box-title">Change Password</h3>
                 </div>
-                <!-- /.box-header -->
-                <!-- form start -->
                 <form class="form-horizontal">
                     <div class="box-body">
                         <div class="form-group">
@@ -114,21 +122,18 @@
                             </div>
                         </div>
                     </div>
-                    <!-- /.box-body -->
                     <div class="box-footer">
                         <button type="submit" class="btn btn-default">Cancel</button>
                         <button type="submit" class="btn btn-warning pull-right">Change</button>
                     </div>
-                    <!-- /.box-footer -->
                 </form>
             </div>
-            <!-- /.box -->
 
-        </div>
+        </div> -->
         <!--/.col (right) -->
     </div>
     <!-- /.row -->
-    
+
 </section>
 <!-- /.content -->
 
