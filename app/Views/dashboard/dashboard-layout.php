@@ -346,6 +346,56 @@
           </li>
 
 
+          <!--  -->
+          <li class="<?= (url_is('dashboard/settings/appinfo*'))? 'active': '' ?>">
+            <a href="#">
+              <i class="fa fa-pie-chart"></i>
+              <span>App Info</span>
+            </a>
+          </li>
+
+
+
+
+
+
+          
+          
+
+
+          <li class="header">API Documentation</li>
+          <!--  -->
+          <li class="treeview <?= (url_is('dashboard/documentation*'))? 'active': '' ?>">
+            <a href="#">
+              <i class="fa fa-pie-chart"></i>
+              <span>API Documentation</span>
+              <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+              </span>
+            </a>
+            <ul class="treeview-menu">
+              <li class="<?= (url_is('dashboard/documentation/create'))? 'active': '' ?>">
+                <a href="<?= base_url() ?>dashboard/documentation/create">
+                  <i class="fa fa-plus-circle"></i> Create New
+                </a>
+              </li>
+              <li class="<?= (url_is('dashboard/documentation/list'))? 'active': '' ?>">
+                <a href="<?= base_url() ?>dashboard/documentation/list">
+                  <i class="fa fa-list"></i> List
+                </a>
+              </li>
+              <!-- <li class="<?= (url_is('dashboard/documentation/trash'))? 'active': '' ?>">
+                <a href="<?= base_url() ?>dashboard/settings/services/trash">
+                  <i class="fa fa-trash"></i> Trash
+                </a>
+              </li> -->
+            </ul>
+          </li>
+
+
+
+
+
 
 
         </ul>
