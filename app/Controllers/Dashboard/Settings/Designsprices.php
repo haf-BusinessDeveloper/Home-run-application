@@ -5,6 +5,7 @@ namespace App\Controllers\Dashboard\Settings;
 use App\Controllers\BaseController;
 
 use App\Models\DesignPriceModel;
+use App\Models\RoomsTypeModel;
 
 class Designsprices extends BaseController
 {
@@ -26,7 +27,9 @@ class Designsprices extends BaseController
             $session = session();
             $session->setFlashdata('added_successfuly', 'true');
         }
-        return view('dashboard/pages/settings/designsprices/create-page');
+        $RoomsTypeModel = new RoomsTypeModel();
+        $data['roomsTypesList'] = $RoomsTypeModel->findAll();
+        return view('dashboard/pages/settings/designsprices/create-page', $data);
     }
 
     public function show($id = null)
@@ -37,6 +40,8 @@ class Designsprices extends BaseController
         }
         $DesignPriceModel = new DesignPriceModel();
         $data['record'] = $DesignPriceModel->find($id);
+        $RoomsTypeModel = new RoomsTypeModel();
+        $data['roomsTypesList'] = $RoomsTypeModel->findAll();
         return view('dashboard/pages/settings/designsprices/show-page', $data);
     }
 
@@ -51,14 +56,18 @@ class Designsprices extends BaseController
         $DesignPriceModel = new DesignPriceModel();
         if ($dataPosted) {
             $file = $this->request->getFile('design_image');
-            $newName = $file->getRandomName();
-            $file->move(WRITEPATH . 'uploads', $newName);
-            $dataPosted['design_image'] = $newName;
+            if ($file->getSize() > 0) {
+                $newName = $file->getRandomName();
+                $file->move(WRITEPATH . 'uploads', $newName);
+                $dataPosted['design_image'] = $newName;
+            }
             $DesignPriceModel->update($id, $dataPosted);
             $session = session();
             $session->setFlashdata('updated_successfuly', 'true');
         }
         $data['record'] = $DesignPriceModel->find($id);
+        $RoomsTypeModel = new RoomsTypeModel();
+        $data['roomsTypesList'] = $RoomsTypeModel->findAll();
         return view('dashboard/pages/settings/designsprices/update-page', $data);
     }
 
@@ -83,6 +92,8 @@ class Designsprices extends BaseController
     {
         $DesignPriceModel = new DesignPriceModel();
         $data['records'] = $DesignPriceModel->findAll();
+        $RoomsTypeModel = new RoomsTypeModel();
+        $data['roomsTypesList'] = $RoomsTypeModel->findAll();
         return view('dashboard/pages/settings/designsprices/list-page', $data);
     }
 

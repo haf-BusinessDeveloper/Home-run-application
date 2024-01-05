@@ -53,6 +53,15 @@
                             <input required type="text" class="form-control" name="design_title" id="design_title" placeholder="Enter design title">
                         </div>
                         <div class="form-group">
+                            <label for="room_type_id">Room Type</label>
+                            <select required type="text" class="form-control" name="room_type_id" id="room_type_id" placeholder="Enter design title">
+                                <option value="">Choose ...</option>
+                                <?php foreach ($roomsTypesList as $key => $roomType) { ?>
+                                <option value="<?= $roomType['room_type_id'] ?>"><?= $roomType['room_type_title'] ?></option>
+                                <?php } ?>
+                            </select>
+                        </div>
+                        <div class="form-group">
                             <label for="design_image">Design image</label>
                             <input required type="file" class="form-control" name="design_image" id="design_image">
                         </div>

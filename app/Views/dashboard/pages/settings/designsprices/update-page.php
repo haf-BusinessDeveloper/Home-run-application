@@ -27,12 +27,12 @@
         $session = session();
         $updated_successfuly = $session->getFlashdata('updated_successfuly');
         if ($updated_successfuly) : ?>
-                <div class="col-md-12">
-            <div class="alert alert-success alert-dismissible">
-                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                <h4><i class="icon fa fa-check"></i> Alert!</h4>
-                Success updated Data.
-            </div>
+            <div class="col-md-12">
+                <div class="alert alert-success alert-dismissible">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                    <h4><i class="icon fa fa-check"></i> Alert!</h4>
+                    Success updated Data.
+                </div>
             </div>
         <?php endif; ?>
         <!-- left column -->
@@ -51,8 +51,17 @@
                             <input required value="<?= $record['design_title'] ?>" type="text" class="form-control" name="design_title" id="design_title" placeholder="Enter design title">
                         </div>
                         <div class="form-group">
+                            <label for="room_type_id">Room Type</label>
+                            <select required type="text" class="form-control" name="room_type_id" id="room_type_id" placeholder="Enter design title">
+                                <option value="">Choose ...</option>
+                                <?php foreach ($roomsTypesList as $key => $roomType) { ?>
+                                <option <?= ($record['room_type_id'] == $roomType['room_type_id']) ? 'selected':'' ?> value="<?= $roomType['room_type_id'] ?>"><?= $roomType['room_type_title'] ?></option>
+                                <?php } ?>
+                            </select>
+                        </div>
+                        <div class="form-group">
                             <label for="design_image">Design image</label>
-                            <input required value="<?= $record['design_image'] ?>" type="file" class="form-control" name="design_image" id="design_image">
+                            <input value="<?= $record['design_image'] ?>" type="file" class="form-control" name="design_image" id="design_image">
                         </div>
                         <div class="form-group">
                             <label for="price_per_square_meter">Price per square meter</label>
@@ -71,6 +80,12 @@
 
         </div>
         <!--/.col (left) -->
+        <div class="col-md-5">
+            <div class="form-group">
+                <label for="design_image">Design image</label><br>
+                <img width="350px" src="<?= base_url('writable/uploads/') ?><?= $record['design_image'] ?>" alt="">
+            </div>
+        </div>
     </div>
     <!-- /.row -->
 

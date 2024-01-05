@@ -51,38 +51,47 @@
                             <tr>
                                 <th>#</th>
                                 <th>design title</th>
+                                <th>Room Type</th>
                                 <th>design image</th>
                                 <th>price per square meter</th>
                                 <th>#</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <?php foreach ($records as $key => $record): ?>
-                            <tr>
-                                <td><?= $key + 1 ?></td>
-                                <td><?= $record['design_title'] ?></td>
-                                <td><img width="200px" src="<?= base_url('writable/uploads/') ?><?= $record['design_image'] ?>" alt=""></td>
-                                <td><?= $record['price_per_square_meter'] ?></td>
-                                <td>
-                                    <a href="<?= base_url('dashboard/settings/Designsprices/show/') ?><?= $record['design_price_id'] ?>">
-                                        <button class="btn btn-xs btn-primary">
-                                            <i class="fa fa-eye"></i> View
-                                        </button>
-                                    </a>
-                                    <a href="<?= base_url('dashboard/settings/Designsprices/update/') ?><?= $record['design_price_id'] ?>">
-                                        <button class="btn btn-xs btn-warning">
-                                            <i class="fa fa-edit"></i> Edit
-                                        </button>
-                                    </a>
-                                    <a href="<?= base_url('dashboard/settings/Designsprices/delete/') ?><?= $record['design_price_id'] ?>">
-                                        <button class="btn btn-xs btn-danger">
-                                            <i class="fa fa-times"></i> Delete
-                                        </button>
-                                    </a>
-                                </td>
-                            </tr>
+                            <?php foreach ($records as $key => $record) : ?>
+                                <tr>
+                                    <td><?= $key + 1 ?></td>
+                                    <td><?= $record['design_title'] ?></td>
+                                    <td>
+                                        <select disabled type="text" class="form-control" name="room_type_id" id="room_type_id" placeholder="Enter design title">
+                                            <option value="">Choose ...</option>
+                                            <?php foreach ($roomsTypesList as $key => $roomType) { ?>
+                                                <option <?= ($record['room_type_id'] == $roomType['room_type_id']) ? 'selected' : '' ?> value="<?= $roomType['room_type_id'] ?>"><?= $roomType['room_type_title'] ?></option>
+                                            <?php } ?>
+                                        </select>
+                                    </td>
+                                    <td><img width="200px" src="<?= base_url('writable/uploads/') ?><?= $record['design_image'] ?>" alt=""></td>
+                                    <td><?= $record['price_per_square_meter'] ?></td>
+                                    <td>
+                                        <a href="<?= base_url('dashboard/settings/Designsprices/show/') ?><?= $record['design_price_id'] ?>">
+                                            <button class="btn btn-xs btn-primary">
+                                                <i class="fa fa-eye"></i> View
+                                            </button>
+                                        </a>
+                                        <a href="<?= base_url('dashboard/settings/Designsprices/update/') ?><?= $record['design_price_id'] ?>">
+                                            <button class="btn btn-xs btn-warning">
+                                                <i class="fa fa-edit"></i> Edit
+                                            </button>
+                                        </a>
+                                        <a href="<?= base_url('dashboard/settings/Designsprices/delete/') ?><?= $record['design_price_id'] ?>">
+                                            <button class="btn btn-xs btn-danger">
+                                                <i class="fa fa-times"></i> Delete
+                                            </button>
+                                        </a>
+                                    </td>
+                                </tr>
                             <?php endforeach;
-                            if (! $records) :
+                            if (!$records) :
                             ?>
                                 <tr>
                                     <td colspan="5" class="text-center">There is no data to display.</td>
@@ -93,6 +102,7 @@
                             <tr>
                                 <th>#</th>
                                 <th>design title</th>
+                                <th>Room Type</th>
                                 <th>design image</th>
                                 <th>price per square meter</th>
                                 <th>#</th>
