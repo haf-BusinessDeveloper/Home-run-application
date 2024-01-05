@@ -32,7 +32,7 @@ class Users extends BaseController
             return redirect()->back();
         }
         $UserModel = new UserModel();
-        $data['record'] = $UserModel->find($id);
+        $data['record'] = $UserModel->where('is_admin',null)->find($id);
         return view('dashboard/pages/users/show-page', $data);
     }
     
@@ -77,7 +77,7 @@ class Users extends BaseController
     public function list()
     {
         $UserModel = new UserModel();
-        $data['records'] = $UserModel->findAll();
+        $data['records'] = $UserModel->where('is_admin',null)->findAll();
         return view('dashboard/pages/users/list-page', $data);
     }
     

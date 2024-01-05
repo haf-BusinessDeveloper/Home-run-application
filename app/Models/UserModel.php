@@ -23,6 +23,7 @@ class UserModel extends Model
         "phone_number",
         "address",
         "is_whats_available",
+        "is_admin",
         "user_status",
         "user_created_at",
         "user_created_by",
