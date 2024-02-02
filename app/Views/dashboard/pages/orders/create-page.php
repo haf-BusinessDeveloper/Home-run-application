@@ -22,23 +22,24 @@
 
 <!-- Main content -->
 <section class="content">
-    <div class="row">
+    <div class="row" id="order_vue_app_id">
         <!-- left column -->
-        <div class="col-md-12">
-            <!-- general form elements -->
-            <div class="box box-primary">
-                <div class="box-header with-border">
-                    <h3 class="box-title">Client Data</h3>
-                </div>
-                <!-- /.box-header -->
-                <!-- form start -->
-                <form role="form">
+        <form role="form" method="post">
+            <div class="col-md-12">
+                <!-- general form elements -->
+                <div class="box box-primary">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">Client Data</h3>
+                    </div>
+                    <!-- /.box-header -->
+                    <!-- form start -->
                     <div class="box-body">
                         <div class="col-md-12">
                             <div class="form-group">
+                                <input readonly type="text" class="form-control" name="client_full_name" id="client_full_name" placeholder="Client Full Name">
                                 <label for="client_full_name">Full Name</label>
                                 <!-- <input type="text" class="form-control" name="client_full_name" id="client_full_name" placeholder="Enter Full Name"> -->
-                                <select onchange="getClientById()" required name="client_full_name" id="client_full_name" class="form-control">
+                                <select onchange="getClientById()" required name="user_id" id="user_id" class="form-control">
                                     <option value="">Choose ...</option>
                                     <?php foreach ($clients_list as $key => $client) { ?>
                                         <option value="<?= $client['user_id'] ?>"><?= $client['full_name'] ?></option>
@@ -66,21 +67,19 @@
                     <!-- <div class="box-footer">
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </div> -->
-                </form>
-            </div>
-            <!-- /.box -->
-
-        </div>
-        <!--/.col (left) -->
-        <div class="col-md-12">
-            <!-- general form elements -->
-            <div class="box box-primary">
-                <div class="box-header with-border">
-                    <h3 class="box-title">Real estate unit data</h3>
                 </div>
-                <!-- /.box-header -->
-                <!-- form start -->
-                <form role="form">
+                <!-- /.box -->
+
+            </div>
+            <!--/.col (left) -->
+            <div class="col-md-12">
+                <!-- general form elements -->
+                <div class="box box-primary">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">Real estate unit data</h3>
+                    </div>
+                    <!-- /.box-header -->
+                    <!-- form start -->
                     <div class="box-body">
                         <!-- select -->
                         <div class="col-md-4">
@@ -109,7 +108,7 @@
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label for="client_address">Address</label>
-                                <textarea type="text" class="form-control" name="client_address" id="client_address" placeholder="Enter Address"></textarea>
+                                <textarea required type="text" class="form-control" name="client_address" id="client_address" placeholder="Enter Address"></textarea>
                             </div>
                         </div>
                     </div>
@@ -118,22 +117,21 @@
                     <!-- <div class="box-footer">
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </div> -->
-                </form>
-            </div>
-            <!-- /.box -->
-
-        </div>
-        <!--/.col (left) -->
-        <div class="col-md-12">
-            <!-- general form elements -->
-            <div class="box box-primary">
-                <div class="box-header with-border">
-                    <h3 class="box-title">Real estate unit rooms</h3>
-                    <button class="btn btn-xs btn-primary pull-right"> <i class="fa fa-plus-circle"></i> add new</button>
                 </div>
-                <!-- /.box-header -->
-                <!-- form start -->
-                <form role="form">
+                <!-- /.box -->
+
+            </div>
+            <!--/.col (left) -->
+            <div class="col-md-12">
+                <textarea type="text" id="real_estate_unit_rooms_json" name="real_estate_unit_rooms_json" class="form-control"></textarea>
+                <!-- general form elements -->
+                <div class="box box-primary">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">Real estate unit rooms</h3>
+                        <button type="button" @click="addNewRoomType()" class="btn btn-xs btn-primary pull-right"> <i class="fa fa-plus-circle"></i> add new</button>
+                    </div>
+                    <!-- /.box-header -->
+                    <!-- form start -->
                     <div class="box-body">
                         <table class="table table-bordered">
                             <tr>
@@ -142,207 +140,43 @@
                                 <th>count</th>
                                 <th>#</th>
                             </tr>
-                            <tr>
-                                <td>1.</td>
-                                <td>Update software</td>
-                                <td>2</td>
+                            <tr v-for="(Real_estate_unit_roomItem, itemKey) in Real_estate_unit_rooms_data" :key="itemKey">
+                                <td>{{itemKey + 1}}</td>
+                                <td>{{Real_estate_unit_roomItem}}
+                                    <select @change="getTypeTitle($event,itemKey)" v-model="Real_estate_unit_roomItem.room_type_id" class="form-control" style="width:250px">
+                                        <option value="">Choose ...</option>
+                                        <option v-for="(RoomsType, index) in RoomsTypes_list" :value="RoomsType.room_type_id" :key="index">{{RoomsType.room_type_title}}</option>
+                                    </select>
+                                </td>
                                 <td>
-                                    <button class="btn btn-xs btn-danger"> <i class="fa fa-times-circle"></i> delete</button>
+                                    <input @change="change_count_of_rooms()" v-model="Real_estate_unit_roomItem.count_of_rooms" type="number" class="form-control" style="width: 100px;">
+                                </td>
+                                <td>
+                                    <button @click="deleteA_Room_from_the_Real_estateUnit(itemKey)" type="button" class="btn btn-xs btn-danger"> <i class="fa fa-times-circle"></i> delete</button>
 
                                 </td>
+                            </tr>
+                            <tr>
+                                <td v-if="Real_estate_unit_rooms_data.length < 1" colspan="4">there is no data to display.</td>
                             </tr>
                         </table>
 
                     </div>
                     <!-- /.box-body -->
 
-                    <!--<div class="box-footer">
-                        <button type="submit" class="btn btn-primary">Submit</button>
-                    </div> -->
-                </form>
-            </div>
-            <!-- /.box -->
-
-        </div>
-        <!--/.col (left) -->
-        <div class="col-md-12">
-            <!-- general form elements -->
-            <div class="box box-primary">
-                <div class="box-header with-border">
-                    <h3 class="box-title">Room Type [ bedroom ] -
-                        <div style="margin-top: 10px;">
-                            <input type="text" name="length" id="length" placeholder="length" style="width: 80px;"> X
-                            <input type="text" name="width" id="width" placeholder="width" style="width: 80px;"> X <input type="text" name="height" id="height" placeholder="height" style="width: 80px;">
-                        </div>
-                    </h3>
-                </div>
-                <!-- /.box-header -->
-                <!-- form start -->
-                <form role="form">
-                    <div class="box-body">
-
-                        <div class="row">
-                            <div class="col-md-12">
-
-                                <div class="col-md-4">
-                                    <!-- Widget: user widget style 1 -->
-                                    <div class="box box-widget widget-user">
-                                        <input class="img-circle" type="checkbox" name="" id="">
-                                        <!-- Add the bg color to the header using any of the bg-* classes -->
-                                        <div class="widget-user-header bg-black" style="background: url('<?= base_url('public/dashboard') ?>/dist/img/photo1.png') center center;">
-                                            <h3 class="widget-user-username">Elizabeth Pierce</h3>
-                                            <h5 class="widget-user-desc">Web Designer</h5>
-                                        </div>
-                                        <div class="widget-user-image">
-                                            <img class="img-circle" src="<?= base_url('public/dashboard') ?>/dist/img/user3-128x128.jpg" alt="User Avatar">
-                                        </div>
-                                        <div class="box-footer">
-                                            <div class="row">
-                                                <div class="col-sm-2 border-right">
-                                                    <div class="description-block">
-                                                        <!-- <h5 class="description-header">3,200</h5>
-                    <span class="description-text">SALES</span> -->
-                                                    </div>
-                                                    <!-- /.description-block -->
-                                                </div>
-                                                <!-- /.col -->
-                                                <div class="col-sm-8 border-right">
-                                                    <div class="description-block">
-                                                        <h5 class="description-header">13,000</h5>
-                                                        <span class="description-text">Price per square meter</span>
-                                                    </div>
-                                                    <!-- /.description-block -->
-                                                </div>
-                                                <!-- /.col -->
-                                                <div class="col-sm-2">
-                                                    <div class="description-block">
-                                                        <!-- <h5 class="description-header">35</h5>
-                    <span class="description-text">PRODUCTS</span> -->
-                                                    </div>
-                                                    <!-- /.description-block -->
-                                                </div>
-                                                <!-- /.col -->
-                                            </div>
-                                            <!-- /.row -->
-                                        </div>
-                                    </div>
-                                    <!-- /.widget-user -->
-                                </div>
-                                <!-- /.col -->
-                            </div>
-                        </div>
-
-                    </div>
-                    <!-- /.box-body -->
-
                     <div class="box-footer">
-                        <div class="row">
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label for="square_meters">square_meters</label>
-                                    <input type="text" class="form-control" name="square_meters" id="square_meters">
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label for="price_per_square_meter">price_per_square_meter</label>
-                                    <input type="text" class="form-control" name="price_per_square_meter" id="price_per_square_meter">
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label for="total_cost_of_room_finishing">total_cost_of_room_finishing</label>
-                                    <input type="text" class="form-control" name="total_cost_of_room_finishing" id="total_cost_of_room_finishing">
-                                </div>
-                            </div>
-                        </div>
+                        <button type="submit" class="btn btn-primary pull-right">
+                            <i class="fa fa-chevron-circle-right"></i>
+                            Step 2
+                        </button>
                     </div>
-                </form>
-            </div>
-            <!-- /.box -->
-
-        </div>
-        <!--/.col (left) -->
-
-
-        <div class="col-md-12">
-            <!-- general form elements -->
-            <div class="box box-primary">
-                <div class="box-header with-border">
-                    <h3 class="box-title">Other Order data</h3>
                 </div>
-                <!-- /.box-header -->
-                <!-- form start -->
-                <form role="form">
-                    <div class="box-body">
-                        <div class="form-group">
-                            <label for="client_order_details">Client Order Details</label>
-                            <textarea type="text" class="form-control" name="client_order_details" id="client_order_details"></textarea>
-                        </div>
+                <!-- /.box -->
 
-                        <div class="col-md-4">
-                            <div class="form-group">
-                                <label for="total_unit_finishing_cost">Total unit finishing cost</label>
-                                <input type="text" class="form-control" name="total_unit_finishing_cost" id="total_unit_finishing_cost" placeholder="Enter total unit finishing cost">
-                            </div>
-                        </div>
-
-                        <div class="col-md-4">
-                            <div class="form-group">
-                                <label for="proposed_deadline_for_deleivery">Deadline</label>
-                                <input type="date" class="form-control" name="proposed_deadline_for_deleivery" id="proposed_deadline_for_deleivery" placeholder="Enter proposed deadline for deleivery">
-                            </div>
-                        </div>
-
-                        <div class="col-md-4">
-                            <!-- select -->
-                            <div class="form-group">
-                                <label for="preferred_payment_method">Preferred Payment Method</label>
-                                <select required name="preferred_payment_method" id="preferred_payment_method" class="form-control">
-                                    <option value="">Choose</option>
-                                    <option value="1">Active</option>
-                                    <option value="0">Not Active</option>
-                                    <option>option 4</option>
-                                    <option>option 5</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="admin_notes">Admin notes</label>
-                            <textarea type="text" class="form-control" name="admin_notes" id="admin_notes"></textarea>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="order_details">Order details</label>
-                            <textarea type="text" class="form-control" name="order_details" id="order_details"></textarea>
-                        </div>
-                        <div class="col-md-3">
-                            <!-- select -->
-                            <div class="form-group">
-                                <label for="order_status">Order Status</label>
-                                <select required name="order_status" id="order_status" class="form-control">
-                                    <option value="">Choose</option>
-                                    <option value="1">Active</option>
-                                    <option value="0">Not Active</option>
-                                    <option>option 4</option>
-                                    <option>option 5</option>
-                                </select>
-                            </div>
-                        </div>
-
-
-                    </div>
-                    <!-- /.box-body -->
-
-                    <div class="box-footer">
-                        <button type="submit" class="btn btn-primary">Submit</button>
-                    </div>
-                </form>
             </div>
-            <!-- /.box -->
+            <!--/.col (left) -->
 
-        </div>
+        </form>
     </div>
     <!-- /.row -->
 
@@ -360,9 +194,101 @@
         id = client_full_name_el.value;
         axios.get(`<?= base_url() ?>/api/Users/getClientById/${id}`).then(res => {
             console.log(res)
-            document.getElementById("client_phone_number").value = res.data.phone_number;
-            document.getElementById("client_email").value = res.data.user_email;
+            document.getElementById("client_phone_number").value = res.data[0].phone_number;
+            document.getElementById("client_email").value = res.data[0].user_email;
+            document.getElementById("client_full_name").value = res.data[0].full_name;
         });
     }
+
+    const order_vue_app = new Vue({
+        el: "#order_vue_app_id",
+        data() {
+            return {
+                RoomsTypes_list: <?= json_encode($RoomsTypes_list) ?>,
+                Real_estate_unit_rooms_data: [],
+                Real_estate_unit_rooms_details_list: [],
+
+                defaultReal_estate_unit_room_item: {
+                    "room_type_id": "",
+                    "room_type_title": "",
+                    "count_of_rooms": 1,
+                },
+
+                defaultReal_estate_unit_room_details_item: {
+                    "room_per_order_id": "",
+                    // "client_order_id":"",
+                    // "user_id":"",
+                    "room_type_id": "",
+                    "length": "",
+                    "width": "",
+                    "height": "",
+                    "price_per_square_meter": "",
+                    "square_meters": "",
+                    "total_cost_of_room_finishing": "",
+                },
+            }
+        },
+        methods: {
+            addNewRoomType: function() {
+                // var defaultReal_estate_unit_room_item = Object.create(this.defaultReal_estate_unit_room_item);
+                var defaultReal_estate_unit_room_item = Object.assign({}, this.defaultReal_estate_unit_room_item);
+                this.Real_estate_unit_rooms_data.push(defaultReal_estate_unit_room_item);
+                document.getElementById("real_estate_unit_rooms_json").value = JSON.stringify(this.Real_estate_unit_rooms_data)
+            },
+            getTypeTitle: function(event,itemKey) {
+                var room_type_id = event.target.value;
+                var room_type_title = event.target.selectedOptions[0].innerHTML;
+                this.Real_estate_unit_rooms_data[itemKey].room_type_title = room_type_title;
+                document.getElementById("real_estate_unit_rooms_json").value = JSON.stringify(this.Real_estate_unit_rooms_data)
+            },
+            change_count_of_rooms: function() {
+                document.getElementById("real_estate_unit_rooms_json").value = JSON.stringify(this.Real_estate_unit_rooms_data)
+            },
+            deleteA_Room_from_the_Real_estateUnit: function(itemKey) {
+                this.Real_estate_unit_rooms_data.splice(itemKey,1);
+                document.getElementById("real_estate_unit_rooms_json").value = JSON.stringify(this.Real_estate_unit_rooms_data)
+            },
+            recount_Real_estate_unit_rooms_details_list: function(Real_estate_unit_roomItem) {
+                console.log(Real_estate_unit_roomItem);
+                let Real_estate_unit_rooms_data = this.Real_estate_unit_rooms_data;
+
+                for (let k = 0; k < Real_estate_unit_roomItem.count_of_rooms; k++) {
+                    room_type_id = Real_estate_unit_roomItem.room_type_id;
+                    room_type_title = Real_estate_unit_roomItem.room_type_title;
+                    console.log(room_type_id)
+                    console.log(room_type_title)
+                    var defaultReal_estate_unit_room_details_item = Object.assign({}, this.defaultReal_estate_unit_room_details_item);
+
+                    defaultReal_estate_unit_room_details_item.room_type_id = room_type_id;
+                    defaultReal_estate_unit_room_details_item.room_type_title = room_type_title;
+                    this.Real_estate_unit_rooms_details_list.push(defaultReal_estate_unit_room_details_item);
+
+                }
+
+
+                // defaultReal_estate_unit_room_details_item.
+            },
+            // recount_Real_estate_unit_rooms_details_list_when_room_type_idChange: function(Real_estate_unit_roomItem) {
+            //     console.log(Real_estate_unit_roomItem);
+            //     let Real_estate_unit_rooms_data = this.Real_estate_unit_rooms_data;
+
+            //     for (let k = 0; k < Real_estate_unit_roomItem.count_of_rooms; k++) {
+            //         room_type_id = Real_estate_unit_roomItem.room_type_id;
+            //         room_type_title = Real_estate_unit_roomItem.room_type_title;
+            //         console.log(room_type_id)
+            //         console.log(room_type_title)
+            //         var defaultReal_estate_unit_room_details_item = Object.assign({}, this.defaultReal_estate_unit_room_details_item);
+
+            //         defaultReal_estate_unit_room_details_item.room_type_id = room_type_id;
+            //         defaultReal_estate_unit_room_details_item.room_type_title = room_type_title;
+            //         this.Real_estate_unit_rooms_details_list.push(defaultReal_estate_unit_room_details_item);
+
+            //     }
+
+
+            // defaultReal_estate_unit_room_details_item.
+            // }
+        },
+    });
 </script>
 <?= $this->endSection() ?>

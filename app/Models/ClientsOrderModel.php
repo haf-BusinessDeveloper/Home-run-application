@@ -26,6 +26,7 @@ class ClientsOrderModel extends Model
         "location_longitude",
         "client_order_details",
         "preferred_payment_method",
+        "real_estate_unit_rooms_json",
         "total_unit_finishing_cost",
         "proposed_deadline_for_deleivery",
         "admin_notes",
