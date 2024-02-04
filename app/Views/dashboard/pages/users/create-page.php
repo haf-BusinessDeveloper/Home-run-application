@@ -65,7 +65,7 @@
                         </div>
                         <div class="form-group">
                             <label for="is_whats_available">
-                                <input required value="1" type="checkbox" name="is_whats_available" id="is_whats_available">
+                                <input value="1" type="checkbox" name="is_whats_available" id="is_whats_available">
                                 Is Whats available?</label>
                         </div>
 

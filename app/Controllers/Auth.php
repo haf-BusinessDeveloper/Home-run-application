@@ -24,7 +24,7 @@ class Auth extends BaseController
     public function logout()
     {
 
-        session_destroy();
+        // session_destroy();
         // or
         $session = session();
         $session->destroy();
