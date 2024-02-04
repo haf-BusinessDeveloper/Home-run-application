@@ -38,7 +38,7 @@
 
     <header class="main-header">
       <!-- Logo -->
-      <a href="<?= base_url('public/dashboard') ?>/index2.html" class="logo">
+      <a href="<?= base_url('dashboard') ?>" class="logo">
         <!-- mini logo for sidebar mini 50x50 pixels -->
         <span class="logo-mini"><b>H</b>R</span>
         <!-- logo for regular state and mobile devices -->
@@ -131,7 +131,7 @@
         <ul class="sidebar-menu" data-widget="tree">
           <li class="header">MAIN NAVIGATION</li>
           <li class="treeview <?= (url_is('dashboard'))? 'active': '' ?>">
-            <a href="<?= base_url() ?>dashboard">
+            <a href="<?= base_url('dashboard') ?>">
               <i class="fa fa-dashboard"></i> <span>Dashboard</span>
             </a>
           </li>
