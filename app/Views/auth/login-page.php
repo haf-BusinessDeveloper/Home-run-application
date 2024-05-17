@@ -36,6 +36,7 @@
   <div class="login-box-body">
     <p class="login-box-msg">Sign in to start your session</p>
 
+    <!-- <form action="https://homerunapp.online/auth" method="post"> -->
     <form action="<?= base_url('auth') ?>" method="post">
       <div class="form-group has-feedback">
         <input name="user_email" type="email" class="form-control" placeholder="Email">

@@ -124,10 +124,12 @@ class Orders extends BaseController
     }
 
 
+    // function to update the order
     public function update($id = null)
     {
         if ($id === null) {
             # code...
+            // return "Id is required !!";
             return redirect()->back();
         }
         $UserModel = new UserModel();

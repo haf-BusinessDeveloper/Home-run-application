@@ -222,24 +222,24 @@ class Orders extends BaseController
 
 
 
-    public function list()
-    {
-        $ClientsOrderModel = new ClientsOrderModel();
-        $clients_orders = $ClientsOrderModel->findAll();
-        if ($clients_orders) {
-            $data = [
-                "message" => "clients_orders_list",
-                "clients_orders" => $clients_orders,
-            ];
-            return $this->respond($data, 200);
-        } else {
-            $data = [
-                "message" => "there is no data to display",
-                "clients_orders" => []
-            ];
-            return $this->respond($data, 200);
-        }
-    }
+    // public function list()
+    // {
+    //     $ClientsOrderModel = new ClientsOrderModel();
+    //     $clients_orders = $ClientsOrderModel->findAll();
+    //     if ($clients_orders) {
+    //         $data = [
+    //             "message" => "clients_orders_list",
+    //             "clients_orders" => $clients_orders,
+    //         ];
+    //         return $this->respond($data, 200);
+    //     } else {
+    //         $data = [
+    //             "message" => "there is no data to display",
+    //             "clients_orders" => []
+    //         ];
+    //         return $this->respond($data, 200);
+    //     }
+    // }
 
     public function listByUserID($user_id = null)
     {
