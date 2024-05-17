@@ -1,0 +1,24 @@
+CRITICAL - 2024-05-06 07:51:10 --> Call to undefined function DefaultContract()
+in APPPATH\Views\dashboard\pages\contracts\create-page.php on line 422.
+ 1 SYSTEMPATH\View\View.php(213): include()
+ 2 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('dashboard/pages/contracts/create-page', [], true)
+ 4 APPPATH\Controllers\Dashboard\Contracts.php(46): view('dashboard/pages/contracts/create-page', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Dashboard\Contracts->create('12')
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard\Contracts))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-05-06 07:59:18 --> Undefined array key "orderData"
+in APPPATH\Controllers\Api\Contracts.php on line 52.
+ 1 APPPATH\Controllers\Api\Contracts.php(52): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "orderData"', 'C:\\xampp\\htdocs\\github\\Home-run-application\\app\\Controllers\\Api\\Contracts.php', 52)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Api\Contracts->save('12')
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Contracts))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-05-06 08:22:19 --> Cannot use object of type stdClass as array
+in APPPATH\Controllers\Api\Contracts.php on line 54.
+ 1 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Api\Contracts->save('16')
+ 2 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Contracts))
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-05-06 22:23:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.

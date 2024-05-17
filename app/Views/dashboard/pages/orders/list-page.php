@@ -36,49 +36,55 @@
                     <table id="example1" class="table table-bordered table-striped">
                         <thead>
                             <tr>
-                                <th>Rendering engine</th>
-                                <th>Browser</th>
-                                <th>Platform(s)</th>
-                                <th>Engine version</th>
+                                <th>#</th>
+                                <th>Client Name</th>
+                                <th>Unit Type</th>
+                                <th>Total Cost</th>
+                                <th>Created at</th>
+                                <th>Deadline Deleivery</th>
+                                <th>Order Status</th>
                                 <th>#</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>Trident</td>
-                                <td>Internet
-                                    Explorer 4.0
-                                </td>
-                                <td>Win 95+</td>
-                                <td> 4</td>
-                                <td>
-                                    <a href="<?= base_url('dashboard/orders/show/') ?>id">
-                                        <button class="btn btn-xs btn-primary">
-                                            <i class="fa fa-eye"></i> View
-                                        </button>
-                                    </a>
-                                    <a href="<?= base_url('dashboard/orders/update/') ?>id">
-                                        <button class="btn btn-xs btn-warning">
-                                            <i class="fa fa-edit"></i> Edit
-                                        </button>
-                                    </a>
-                                    <a href="<?= base_url('dashboard/orders/delete/') ?>id">
-                                        <button class="btn btn-xs btn-danger">
-                                            <i class="fa fa-times"></i> Delete
-                                        </button>
-                                    </a>
-                                </td>
-                            </tr>
+                            <?php foreach ($records as $key => $record) : ?>
+                                <tr>
+                                    <td><?= $key + 1 ?></td>
+                                    <td><?= $record['client_full_name'] ?></td>
+                                    <td><?= $record['real_estate_unit_type'] ?></td>
+                                    <td><?= $record['total_unit_finishing_cost'] ?></td>
+                                    <td><?= $record['client_order_created_at'] ?></td>
+                                    <td><?= $record['proposed_deadline_for_deleivery'] ?></td>
+                                    <td><?= $record['client_order_status'] ?></td>
+                                    <td>
+                                        <a href="<?= base_url('dashboard/orders/show/' . $record['client_order_id']) ?>">
+                                            <button class="btn btn-xs btn-primary">
+                                                <i class="fa fa-eye"></i> View
+                                            </button>
+                                        </a>
+                                        <?php if ($record['client_order_status']) { ?>
+                                            <?php if ($record['client_order_status'] != "Order Canceled" &&  $record['client_order_status'] != "New Order" &&  $record['client_order_status'] != "Contracted") { ?>
+                                                <a href="<?= base_url('dashboard/contracts/create/' . $record['client_order_id']) ?>">
+                                                    <button class="btn btn-xs btn-primary">
+                                                        <i class="fa fa-print"></i> Create a contract
+                                                    </button>
+                                                </a>
+                                            <?php } ?>
+                                        <?php } ?>
+                                        <a href="<?= base_url('dashboard/orders/update/' . $record['client_order_id']) ?>">
+                                            <button class="btn btn-xs btn-warning">
+                                                <i class="fa fa-edit"></i> Edit
+                                            </button>
+                                        </a>
+                                        <a href="<?= base_url('dashboard/orders/delete/' . $record['client_order_id']) ?>">
+                                            <button class="btn btn-xs btn-danger">
+                                                <i class="fa fa-times"></i> Delete
+                                            </button>
+                                        </a>
+                                    </td>
+                                </tr>
+                            <?php endforeach; ?>
                         </tbody>
-                        <tfoot>
-                            <tr>
-                                <th>Rendering engine</th>
-                                <th>Browser</th>
-                                <th>Platform(s)</th>
-                                <th>Engine version</th>
-                                <th>#</th>
-                            </tr>
-                        </tfoot>
                     </table>
                 </div>
                 <!-- /.box-body -->

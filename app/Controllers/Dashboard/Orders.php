@@ -97,7 +97,7 @@ class Orders extends BaseController
         $real_estate_unit_rooms_json = json_decode($real_estate_unit_rooms_json, true);
         $DesignPriceModel = new DesignPriceModel();
 
-        
+
         $RoomsPerOrderModel = new RoomsPerOrderModel();
         $real_estate_unit_rooms_List = $RoomsPerOrderModel->where('client_order_id', $id)->findAll();
 
@@ -107,6 +107,8 @@ class Orders extends BaseController
         }
         // echo json_encode($real_estate_unit_rooms_json);die;
 
+        $data['orderData'] = $orderData;
+        $data['id'] = $id;
         $data['real_estate_unit_rooms_json'] = json_encode($real_estate_unit_rooms_List);
         // echo(json_encode($data));die;
         return view('dashboard/pages/orders/step2-page', $data);
@@ -151,13 +153,19 @@ class Orders extends BaseController
             # code...
             return redirect()->back();
         }
-        return view('dashboard/pages/orders/show-page');
+        $ClientsOrderModel = new ClientsOrderModel();
+        $clients_orders = $ClientsOrderModel->delete($id);
+        return redirect()->back();
     }
 
 
     public function list()
     {
-        return view('dashboard/pages/orders/list-page');
+        $ClientsOrderModel = new ClientsOrderModel();
+        $res = $ClientsOrderModel->findAll();
+        $data['records'] = $res;
+        // echo json_encode($data);die; // for testing onlys
+        return view('dashboard/pages/orders/list-page', $data);
     }
 
     public function trash()

@@ -31,6 +31,10 @@ class ClientsOrderModel extends Model
         "proposed_deadline_for_deleivery",
         "admin_notes",
         "order_details",
+
+        "has_a_contract",
+        "contract_details",
+        
         "client_order_status",
         "client_order_created_at",
         "client_order_created_by",

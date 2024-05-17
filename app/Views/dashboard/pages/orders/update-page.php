@@ -36,10 +36,10 @@
                     <div class="box-body">
                         <div class="col-md-12">
                             <div class="form-group">
-                                <input readonly type="text" class="form-control" name="client_full_name" id="client_full_name" placeholder="Client Full Name">
+                                <input readonly type="hidden" class="form-control" name="client_full_name" id="client_full_name" placeholder="Client Full Name">
                                 <label for="client_full_name">Full Name</label>
                                 <!-- <input type="text" class="form-control" name="client_full_name" id="client_full_name" placeholder="Enter Full Name"> -->
-                                <select v-model="orderData.user_id" onchange="getClientById()" required name="user_id" id="user_id" class="form-control">
+                                <select v-model="orderData.user_id" @change="getClientById()" required name="user_id" id="user_id" class="form-control">
                                     <option value="">Choose ...</option>
                                     <?php foreach ($clients_list as $key => $client) { ?>
                                         <option value="<?= $client['user_id'] ?>"><?= $client['full_name'] ?></option>
@@ -123,7 +123,7 @@
             </div>
             <!--/.col (left) -->
             <div class="col-md-12">
-                <textarea v-model="orderData.real_estate_unit_rooms_json" type="text" id="real_estate_unit_rooms_json" name="real_estate_unit_rooms_json" class="form-control"></textarea>
+                <!-- <textarea v-model="orderData.real_estate_unit_rooms_json" type="text" id="real_estate_unit_rooms_json" name="real_estate_unit_rooms_json" class="form-control"></textarea> -->
                 <!-- general form elements -->
                 <div class="box box-primary">
                     <div class="box-header with-border">
@@ -142,7 +142,8 @@
                             </tr>
                             <tr v-for="(Real_estate_unit_roomItem, itemKey) in Real_estate_unit_rooms_data" :key="itemKey">
                                 <td>{{itemKey + 1}}</td>
-                                <td>{{Real_estate_unit_roomItem}}
+                                <td>
+                                    <!-- {{Real_estate_unit_roomItem}} -->
                                     <select @change="getTypeTitle($event,itemKey)" v-model="Real_estate_unit_roomItem.room_type_id" class="form-control" style="width:250px">
                                         <option value="">Choose ...</option>
                                         <option v-for="(RoomsType, index) in RoomsTypes_list" :value="RoomsType.room_type_id" :key="index">{{RoomsType.room_type_title}}</option>
@@ -191,12 +192,14 @@
 <script>
     function getClientById() {
         let client_full_name_el = document.getElementById("client_full_name")
-        id = client_full_name_el.value;
+        // id = client_full_name_el.value;
+        let user_id_el = document.getElementById("user_id")
+        let id = user_id_el.value;
         axios.get(`<?= base_url() ?>/api/Users/getClientById/${id}`).then(res => {
             console.log(res)
-            document.getElementById("client_phone_number").value = res.data[0].phone_number;
-            document.getElementById("client_email").value = res.data[0].user_email;
-            document.getElementById("client_full_name").value = res.data[0].full_name;
+            document.getElementById("client_phone_number").value = res.data.phone_number;
+            document.getElementById("client_email").value = res.data.user_email;
+            document.getElementById("client_full_name").value = res.data.full_name;
         });
     }
 
@@ -234,7 +237,26 @@
             this.getReal_estate_unit_rooms_data();
         },
         methods: {
-            getReal_estate_unit_rooms_data(){
+            getClientById() {
+                let client_full_name_el = document.getElementById("client_full_name")
+                // id = client_full_name_el.value;
+                let user_id_el = document.getElementById("user_id")
+                let id = user_id_el.value;
+                let self = this;
+                // alert(id);
+                axios.get(`<?= base_url() ?>api/Users/getClientById/${id}`).then(res => {
+                    console.log("getClientById: ")
+                    console.log(res)
+                    self.orderData.user_id = res.data.user_id;
+                    self.orderData.client_phone_number = res.data.phone_number;
+                    self.orderData.client_email = res.data.user_email;
+                    self.orderData.client_full_name = res.data.full_name;
+                    document.getElementById("client_phone_number").value = res.data.phone_number;
+                    document.getElementById("client_email").value = res.data.user_email;
+                    document.getElementById("client_full_name").value = res.data.full_name;
+                });
+            },
+            getReal_estate_unit_rooms_data() {
                 this.Real_estate_unit_rooms_data = JSON.parse(this.orderData.real_estate_unit_rooms_json);
             },
             addNewRoomType: function() {
@@ -243,7 +265,7 @@
                 this.Real_estate_unit_rooms_data.push(defaultReal_estate_unit_room_item);
                 document.getElementById("real_estate_unit_rooms_json").value = JSON.stringify(this.Real_estate_unit_rooms_data)
             },
-            getTypeTitle: function(event,itemKey) {
+            getTypeTitle: function(event, itemKey) {
                 var room_type_id = event.target.value;
                 var room_type_title = event.target.selectedOptions[0].innerHTML;
                 this.Real_estate_unit_rooms_data[itemKey].room_type_title = room_type_title;
@@ -253,7 +275,7 @@
                 document.getElementById("real_estate_unit_rooms_json").value = JSON.stringify(this.Real_estate_unit_rooms_data)
             },
             deleteA_Room_from_the_Real_estateUnit: function(itemKey) {
-                this.Real_estate_unit_rooms_data.splice(itemKey,1);
+                this.Real_estate_unit_rooms_data.splice(itemKey, 1);
                 this.orderData.real_estate_unit_rooms_json = JSON.stringify(this.Real_estate_unit_rooms_data);
                 document.getElementById("real_estate_unit_rooms_json").value = JSON.stringify(this.Real_estate_unit_rooms_data)
             },

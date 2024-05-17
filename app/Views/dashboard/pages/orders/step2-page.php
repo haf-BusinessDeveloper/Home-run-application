@@ -23,9 +23,9 @@
 <!-- Main content -->
 <section class="content">
     <div class="row" id="order_vue_app_id">
-        <textarea id="all_rooms_details_list" rows="5" class="form-control">{{all_rooms_details_list}}</textarea>
+        <!-- <textarea id="all_rooms_details_list" rows="5" class="form-control">{{all_rooms_details_list}}</textarea> -->
         <!-- left column -->
-        {{Real_estate_unit_rooms_details_list}}
+        <!-- {{Real_estate_unit_rooms_details_list}} -->
         <div v-for="(Real_estate_unit_room_item_detail,k) in all_rooms_details_list" :key="k" class="col-md-12">
             <!-- general form elements -->
             <div class="box box-primary">
@@ -33,11 +33,11 @@
                     <h3 class="box-title">Room Type [ {{Real_estate_unit_room_item_detail.room_type_title}} ] -
                         <div style="margin-top: 10px;">
                             <label for="height">length</label>
-                            <input @change="calcAllDesigns()" v-model="Real_estate_unit_room_item_detail.length" type="text" name="length" id="length" placeholder="length" style="width: 80px;"> X
+                            <input @keyup="calcAllDesigns()" v-model="Real_estate_unit_room_item_detail.length" type="text" name="length" id="length" placeholder="length" style="width: 80px;"> X
                             <label for="height">width</label>
-                            <input @change="calcAllDesigns()" v-model="Real_estate_unit_room_item_detail.width" type="text" name="width" id="width" placeholder="width" style="width: 80px;"> X
+                            <input @keyup="calcAllDesigns()" v-model="Real_estate_unit_room_item_detail.width" type="text" name="width" id="width" placeholder="width" style="width: 80px;"> X
                             <label for="height">height</label>
-                            <input @change="calcAllDesigns()" v-model="Real_estate_unit_room_item_detail.height" type="text" name="height" id="height" placeholder="height" style="width: 80px;">
+                            <input @keyup="calcAllDesigns()" v-model="Real_estate_unit_room_item_detail.height" type="text" name="height" id="height" placeholder="height" style="width: 80px;">
                         </div>
                     </h3>
                 </div>
@@ -113,7 +113,7 @@
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="price_per_square_meter">Price per square meter</label>
-                                    <input v-model="Real_estate_unit_room_item_detail.price_per_square_meter" type="text" class="form-control" name="price_per_square_meter" id="price_per_square_meter">
+                                    <input @keyup="calcAllDesigns()" v-model="Real_estate_unit_room_item_detail.price_per_square_meter" type="text" class="form-control" name="price_per_square_meter" id="price_per_square_meter">
                                 </div>
                             </div>
                             <div class="col-md-4">
@@ -143,7 +143,7 @@
                     <div class="box-body">
                         <div class="form-group">
                             <label for="client_order_details">Client Order Details</label>
-                            <textarea v-model="Other_Order_data.client_order_details" type="text" class="form-control" name="client_order_details" id="client_order_details"></textarea>
+                            <textarea v-model="orderData.client_order_details" type="text" class="form-control" name="client_order_details" id="client_order_details"></textarea>
                         </div>
 
                         <div class="col-md-4">
@@ -156,7 +156,7 @@
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label for="proposed_deadline_for_deleivery">Deadline</label>
-                                <input v-model="Other_Order_data.proposed_deadline_for_deleivery" type="date" class="form-control" name="proposed_deadline_for_deleivery" id="proposed_deadline_for_deleivery" placeholder="Enter proposed deadline for deleivery">
+                                <input v-model="orderData.proposed_deadline_for_deleivery" type="date" class="form-control" name="proposed_deadline_for_deleivery" id="proposed_deadline_for_deleivery" placeholder="Enter proposed deadline for deleivery">
                             </div>
                         </div>
 
@@ -164,7 +164,7 @@
                             <!-- select -->
                             <div class="form-group">
                                 <label for="preferred_payment_method">Preferred Payment Method</label>
-                                <select v-model="Other_Order_data.preferred_payment_method" required name="preferred_payment_method" id="preferred_payment_method" class="form-control">
+                                <select v-model="orderData.preferred_payment_method" required name="preferred_payment_method" id="preferred_payment_method" class="form-control">
                                     <option value="">Choose</option>
                                     <option value="Bank">Bank Transfer</option>
                                     <option selected value="Cash">Cash</option>
@@ -175,21 +175,26 @@
 
                         <div class="form-group">
                             <label for="admin_notes">Admin notes</label>
-                            <textarea v-model="Other_Order_data.admin_notes" type="text" class="form-control" name="admin_notes" id="admin_notes"></textarea>
+                            <textarea v-model="orderData.admin_notes" type="text" class="form-control" name="admin_notes" id="admin_notes"></textarea>
                         </div>
 
                         <div class="form-group">
                             <label for="order_details">Order details</label>
-                            <textarea v-model="Other_Order_data.order_details" type="text" class="form-control" name="order_details" id="order_details"></textarea>
+                            <textarea v-model="orderData.order_details" type="text" class="form-control" name="order_details" id="order_details"></textarea>
                         </div>
                         <div class="col-md-3">
                             <!-- select -->
                             <div class="form-group">
-                                <label for="order_status">Order Status</label>
-                                <select v-model="Other_Order_data.order_status" required name="order_status" id="order_status" class="form-control">
+                                <label for="client_order_status">Order Status</label>
+                                <select v-model="orderData.client_order_status" required name="client_order_status" id="client_order_status" class="form-control">
                                     <option value="">Choose</option>
-                                    <option value="1">Active</option>
-                                    <option value="0">Not Active</option>
+                                    <option value="New Order">New Order</option>
+                                    <option value="Request Reviewed">Request Reviewed</option>
+                                    <option value="Contracted">Contracted</option>
+                                    <option value="Processing">Processing</option>
+                                    <option value="Implemented">Implemented</option>
+                                    <option value="Delivered">Delivered</option>
+                                    <option value="Order Canceled">Order Canceled</option>
                                 </select>
                             </div>
                         </div>
@@ -199,10 +204,10 @@
                     <!-- /.box-body -->
 
                     <div class="box-footer">
-                        <button type="submit" class="btn btn-primary pull-right">
+                        <button type="button" @click="saveData()" class="btn btn-primary pull-right">
                             <i class="fa fa-chevron-circle-right"></i>
                             Submit & Finish</button>
-                        <a href="<?= base_url() ?>dashboard/orders/update/5">
+                        <a href="<?= base_url() ?>dashboard/orders/update/<?= $id ?>">
                             <button type="button" class="btn btn-primary pull-left">
                                 <i class="fa fa-chevron-circle-left"></i>
                                 Back To Step1</button>
@@ -255,27 +260,19 @@
                     // "client_order_id":"",
                     // "user_id":"",
                     "room_type_id": "",
-                    "length": "",
-                    "width": "",
-                    "height": "",
-                    "price_per_square_meter": "",
-                    "square_meters": "",
-                    "total_cost_of_room_finishing": "",
+                    "length": 0,
+                    "width": 0,
+                    "height": 0,
+                    "price_per_square_meter": 0,
+                    "square_meters": 0,
+                    "total_cost_of_room_finishing": 0,
                 },
 
                 // Total unit finishing cost
                 total_unit_finishing_cost: 0,
 
                 // Other Order data
-                Other_Order_data:{
-                    "client_order_details":"",
-                    "total_unit_finishing_cost":"",
-                    "proposed_deadline_for_deleivery":"",
-                    "preferred_payment_method":"Cash",
-                    "admin_notes":"",
-                    "order_details":"",
-                    "order_status":"1"
-                }
+                orderData: <?= json_encode($orderData) ?>
             }
         },
         created() {
@@ -284,7 +281,7 @@
         methods: {
             get_all_rooms_details_list() {
                 this.Real_estate_unit_rooms_details_list = JSON.parse(this.Real_estate_unit_rooms_details_list);
-                if (this.Real_estate_unit_rooms_details_list.length > 0) {
+                if (this.Real_estate_unit_rooms_details_list['length'] > 0) {
                     // alert(this.Real_estate_unit_rooms_details_list.length)
                     let array = this.Real_estate_unit_rooms_details_list;
                     for (let index = 0; index < array.length; index++) {
@@ -299,7 +296,8 @@
                             this.all_rooms_details_list.push(element)
                         }
                     }
-                }
+                };
+                this.total_unit_finishing_cost = this.orderData.total_unit_finishing_cost;
             },
             selectThisDesign(design, k, designs) {
                 // alert(k);
@@ -321,14 +319,16 @@
             },
             calcAllDesigns() {
                 var array = this.all_rooms_details_list;
+                let sumAll = 0;
                 for (let index = 0; index < array.length; index++) {
                     const element = array[index];
-                    this.all_rooms_details_list[index].square_meters = element.length * element.width * element.height;
+                    this.all_rooms_details_list[index].square_meters = parseFloat(element['length']) * parseFloat(element.width) * parseFloat(element.height);
 
                     this.all_rooms_details_list[index].total_cost_of_room_finishing = this.all_rooms_details_list[index].square_meters * this.all_rooms_details_list[index].price_per_square_meter;
 
-                    this.total_unit_finishing_cost = this.total_unit_finishing_cost + this.all_rooms_details_list[index].total_cost_of_room_finishing;
+                    sumAll = sumAll + parseFloat(this.all_rooms_details_list[index].total_cost_of_room_finishing);
                 }
+                this.total_unit_finishing_cost = sumAll;
             },
             addNewRoomType: function() {
                 // var defaultReal_estate_unit_room_item = Object.create(this.defaultReal_estate_unit_room_item);
@@ -339,7 +339,7 @@
                 var room_type_id = event.target.value;
                 var room_type_title = event.target.selectedOptions[0].innerHTML;
                 let Real_estate_unit_rooms_data = this.Real_estate_unit_rooms_data;
-                for (let index = 0; index < Real_estate_unit_rooms_data.length; index++) {
+                for (let index = 0; index < Real_estate_unit_rooms_data['length']; index++) {
                     var element = Real_estate_unit_rooms_data[index];
                     for (let k = 0; k < element.count_of_rooms; k++) {
                         room_type_id = element.room_type_id;
@@ -377,6 +377,22 @@
 
                 // defaultReal_estate_unit_room_details_item.
             },
+
+            saveData() {
+                let id = "<?= $id ?>"
+                this.orderData.total_unit_finishing_cost = this.total_unit_finishing_cost;
+                let postedData = {
+                    "orderData": this.orderData,
+                    "real_estate_unit_rooms_json": this.Real_estate_unit_rooms_details_list,
+                    "all_rooms_details_list": this.all_rooms_details_list
+                };
+                console.log("postedData: ");
+                console.log(postedData);
+                axios.post(`<?= base_url() ?>/api/Orders/save/${id}`, postedData).then(res => {
+                    console.log(res)
+                    alert("تم الحفظ بنجاح")
+                });
+            }
             // recount_Real_estate_unit_rooms_details_list_when_room_type_idChange: function(Real_estate_unit_roomItem) {
             //     console.log(Real_estate_unit_roomItem);
             //     let Real_estate_unit_rooms_data = this.Real_estate_unit_rooms_data;

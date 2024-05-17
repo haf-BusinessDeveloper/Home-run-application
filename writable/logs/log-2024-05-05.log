@@ -1,0 +1,91 @@
+CRITICAL - 2024-05-05 15:49:29 --> Undefined variable $usersCount
+in APPPATH\Views\dashboard\pages\home-page.php on line 32.
+ 1 APPPATH\Views\dashboard\pages\home-page.php(32): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $usersCount', 'C:\\xampp\\htdocs\\github\\Home-run-application\\app\\Views\\dashboard\\pages\\home-page.php', 32)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\github\\Home-run-application\\app\\Views\\dashboard\\pages\\home-page.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('dashboard/pages/home-page', [], true)
+ 5 APPPATH\Controllers\Home.php(10): view('dashboard/pages/home-page')
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->index()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-05-05 15:49:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-05-05 16:11:38 --> Undefined variable $usersCount
+in APPPATH\Views\dashboard\pages\home-page.php on line 32.
+ 1 APPPATH\Views\dashboard\pages\home-page.php(32): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $usersCount', 'C:\\xampp\\htdocs\\github\\Home-run-application\\app\\Views\\dashboard\\pages\\home-page.php', 32)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\github\\Home-run-application\\app\\Views\\dashboard\\pages\\home-page.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('dashboard/pages/home-page', [], true)
+ 5 APPPATH\Controllers\Home.php(10): view('dashboard/pages/home-page')
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->index()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-05-05 16:11:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-05-05 20:43:17 --> json_decode(): Argument #1 ($json) must be of type string, array given
+in APPPATH\Controllers\Api\Orders.php on line 55.
+ 1 APPPATH\Controllers\Api\Orders.php(55): json_decode([...], true)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Api\Orders->save('17')
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Orders))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-05-05 20:44:36 --> json_decode(): Argument #1 ($json) must be of type string, array given
+in APPPATH\Controllers\Api\Orders.php on line 55.
+ 1 APPPATH\Controllers\Api\Orders.php(55): json_decode([...], true)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Api\Orders->save('17')
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Orders))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-05-05 20:45:41 --> Undefined array key "count_of_rooms"
+in APPPATH\Controllers\Api\Orders.php on line 64.
+ 1 APPPATH\Controllers\Api\Orders.php(64): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "count_of_rooms"', 'C:\\xampp\\htdocs\\github\\Home-run-application\\app\\Controllers\\Api\\Orders.php', 64)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Api\Orders->save('17')
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Orders))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-05-05 20:48:43 --> Undefined array key "count_of_rooms"
+in APPPATH\Controllers\Api\Orders.php on line 64.
+ 1 APPPATH\Controllers\Api\Orders.php(64): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "count_of_rooms"', 'C:\\xampp\\htdocs\\github\\Home-run-application\\app\\Controllers\\Api\\Orders.php', 64)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Api\Orders->save('16')
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Orders))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-05-05 20:50:39 --> Undefined array key "user_id"
+in APPPATH\Controllers\Api\Orders.php on line 66.
+ 1 APPPATH\Controllers\Api\Orders.php(66): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "user_id"', 'C:\\xampp\\htdocs\\github\\Home-run-application\\app\\Controllers\\Api\\Orders.php', 66)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Api\Orders->save('16')
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Orders))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-05-05 21:00:04 --> Undefined array key "OrderData"
+in APPPATH\Controllers\Api\Orders.php on line 52.
+ 1 APPPATH\Controllers\Api\Orders.php(52): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "OrderData"', 'C:\\xampp\\htdocs\\github\\Home-run-application\\app\\Controllers\\Api\\Orders.php', 52)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Api\Orders->save('16')
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Orders))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-05-05 22:13:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-05 22:13:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-05 22:15:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-05 22:15:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-05 22:15:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-05 22:16:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-05 22:25:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-05 22:25:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-05 22:25:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-05 22:25:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-05 23:39:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-05 23:40:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-05 23:40:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-05-05 23:40:34 --> Undefined variable $records
+in APPPATH\Views\dashboard\pages\contracts\list-page.php on line 50.
+ 1 APPPATH\Views\dashboard\pages\contracts\list-page.php(50): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $records', 'C:\\xampp\\htdocs\\github\\Home-run-application\\app\\Views\\dashboard\\pages\\contracts\\list-page.php', 50)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\github\\Home-run-application\\app\\Views\\dashboard\\pages\\contracts\\list-page.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('dashboard/pages/contracts/list-page', [], true)
+ 5 APPPATH\Controllers\Dashboard\Contracts.php(52): view('dashboard/pages/contracts/list-page')
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Dashboard\Contracts->list()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard\Contracts))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-05-05 23:40:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.

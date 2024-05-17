@@ -26,6 +26,10 @@ class Database extends Config
      */
     public array $default = [
         'DSN'      => '',
+        // 'hostname' => 'sql106.infinityfree.com', // 'sql106.byetcluster.com' 
+        // 'username' => 'if0_36032450',
+        // 'password' => '7bJtUXFnLJ9',
+        // 'database' => 'if0_36032450_test_db',
         'hostname' => 'localhost',
         'username' => 'root',
         'password' => '',
@@ -41,7 +45,7 @@ class Database extends Config
         'compress' => false,
         'strictOn' => false,
         'failover' => [],
-        'port'     => 3306,
+        'port'     => 3308,
     ];
 
     /**

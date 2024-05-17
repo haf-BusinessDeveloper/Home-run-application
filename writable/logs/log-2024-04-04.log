@@ -1,0 +1,72 @@
+INFO - 2024-04-04 00:59:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-04-04 01:00:01 --> Error connecting to the database: ErrorException: mysqli::real_connect(): php_network_getaddresses: getaddrinfo for sql106.infinityfree.com failed: No such host is known.  in C:\xampp\htdocs\github\Home-run-application\system\Database\MySQLi\Connection.php:173
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'mysqli::real_co...', 'C:\\xampp\\htdocs...', 173)
+#1 C:\xampp\htdocs\github\Home-run-application\system\Database\MySQLi\Connection.php(173): mysqli->real_connect('sql106.infinity...', 'if0_36032450', Object(SensitiveParameterValue), 'if0_36032450_te...', 3306, '', 0)
+#2 C:\xampp\htdocs\github\Home-run-application\system\Database\BaseConnection.php(391): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#3 C:\xampp\htdocs\github\Home-run-application\system\Database\BaseConnection.php(573): CodeIgniter\Database\BaseConnection->initialize()
+#4 C:\xampp\htdocs\github\Home-run-application\system\Database\BaseBuilder.php(2309): CodeIgniter\Database\BaseConnection->query('INSERT INTO `us...', Array, false)
+#5 C:\xampp\htdocs\github\Home-run-application\system\Model.php(330): CodeIgniter\Database\BaseBuilder->insert()
+#6 C:\xampp\htdocs\github\Home-run-application\system\BaseModel.php(782): CodeIgniter\Model->doInsert(Array)
+#7 C:\xampp\htdocs\github\Home-run-application\system\Model.php(730): CodeIgniter\BaseModel->insert(Array, true)
+#8 C:\xampp\htdocs\github\Home-run-application\app\Controllers\Api\Users.php(42): CodeIgniter\Model->insert(Array)
+#9 C:\xampp\htdocs\github\Home-run-application\system\CodeIgniter.php(934): App\Controllers\Api\Users->signup()
+#10 C:\xampp\htdocs\github\Home-run-application\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Users))
+#11 C:\xampp\htdocs\github\Home-run-application\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 C:\xampp\htdocs\github\Home-run-application\index.php(67): CodeIgniter\CodeIgniter->run()
+#13 {main}
+
+Next mysqli_sql_exception: php_network_getaddresses: getaddrinfo for sql106.infinityfree.com failed: No such host is known.  in C:\xampp\htdocs\github\Home-run-application\system\Database\MySQLi\Connection.php:173
+Stack trace:
+#0 C:\xampp\htdocs\github\Home-run-application\system\Database\MySQLi\Connection.php(173): mysqli->real_connect('sql106.infinity...', 'if0_36032450', Object(SensitiveParameterValue), 'if0_36032450_te...', 3306, '', 0)
+#1 C:\xampp\htdocs\github\Home-run-application\system\Database\BaseConnection.php(391): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp\htdocs\github\Home-run-application\system\Database\BaseConnection.php(573): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp\htdocs\github\Home-run-application\system\Database\BaseBuilder.php(2309): CodeIgniter\Database\BaseConnection->query('INSERT INTO `us...', Array, false)
+#4 C:\xampp\htdocs\github\Home-run-application\system\Model.php(330): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\xampp\htdocs\github\Home-run-application\system\BaseModel.php(782): CodeIgniter\Model->doInsert(Array)
+#6 C:\xampp\htdocs\github\Home-run-application\system\Model.php(730): CodeIgniter\BaseModel->insert(Array, true)
+#7 C:\xampp\htdocs\github\Home-run-application\app\Controllers\Api\Users.php(42): CodeIgniter\Model->insert(Array)
+#8 C:\xampp\htdocs\github\Home-run-application\system\CodeIgniter.php(934): App\Controllers\Api\Users->signup()
+#9 C:\xampp\htdocs\github\Home-run-application\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Users))
+#10 C:\xampp\htdocs\github\Home-run-application\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\github\Home-run-application\index.php(67): CodeIgniter\CodeIgniter->run()
+#12 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: php_network_getaddresses: getaddrinfo for sql106.infinityfree.com failed: No such host is known.  in C:\xampp\htdocs\github\Home-run-application\system\Database\MySQLi\Connection.php:218
+Stack trace:
+#0 C:\xampp\htdocs\github\Home-run-application\system\Database\BaseConnection.php(391): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp\htdocs\github\Home-run-application\system\Database\BaseConnection.php(573): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp\htdocs\github\Home-run-application\system\Database\BaseBuilder.php(2309): CodeIgniter\Database\BaseConnection->query('INSERT INTO `us...', Array, false)
+#3 C:\xampp\htdocs\github\Home-run-application\system\Model.php(330): CodeIgniter\Database\BaseBuilder->insert()
+#4 C:\xampp\htdocs\github\Home-run-application\system\BaseModel.php(782): CodeIgniter\Model->doInsert(Array)
+#5 C:\xampp\htdocs\github\Home-run-application\system\Model.php(730): CodeIgniter\BaseModel->insert(Array, true)
+#6 C:\xampp\htdocs\github\Home-run-application\app\Controllers\Api\Users.php(42): CodeIgniter\Model->insert(Array)
+#7 C:\xampp\htdocs\github\Home-run-application\system\CodeIgniter.php(934): App\Controllers\Api\Users->signup()
+#8 C:\xampp\htdocs\github\Home-run-application\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Users))
+#9 C:\xampp\htdocs\github\Home-run-application\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\github\Home-run-application\index.php(67): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2024-04-04 01:00:01 --> Unable to connect to the database.
+Main connection [MySQLi]: php_network_getaddresses: getaddrinfo for sql106.infinityfree.com failed: No such host is known. 
+in SYSTEMPATH\Database\BaseConnection.php on line 427.
+ 1 SYSTEMPATH\Database\BaseConnection.php(573): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(2309): CodeIgniter\Database\BaseConnection->query('INSERT INTO `users_table` (`user_email`, `password`, `full_name`, `national_id`, `phone_number`, `address`, `is_whats_available`, `user_created_at`, `user_updated_at`) VALUES (:user_email:, :password:, :full_name:, :national_id:, :phone_number:, :address:, :is_whats_available:, :user_created_at:, :user_updated_at:)', [...], false)
+ 3 SYSTEMPATH\Model.php(330): CodeIgniter\Database\BaseBuilder->insert()
+ 4 SYSTEMPATH\BaseModel.php(782): CodeIgniter\Model->doInsert([...])
+ 5 SYSTEMPATH\Model.php(730): CodeIgniter\BaseModel->insert([...], true)
+ 6 APPPATH\Controllers\Api\Users.php(42): CodeIgniter\Model->insert([...])
+ 7 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Api\Users->signup()
+ 8 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Users))
+ 9 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-04-04 01:03:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-04-04 01:03:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-04-04 01:03:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-04-04 01:04:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-04-04 01:05:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-04-04 01:05:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-04-04 01:06:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-04-04 04:56:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-04-04 04:56:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-04-04 04:56:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-04-04 04:56:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.

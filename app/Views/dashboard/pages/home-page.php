@@ -28,8 +28,8 @@
                 <span class="info-box-icon bg-aqua"><i class="fa fa-envelope-o"></i></span>
 
                 <div class="info-box-content">
-                    <span class="info-box-text">Messages</span>
-                    <span class="info-box-number">1,410</span>
+                    <span class="info-box-text">Users</span>
+                    <span class="info-box-number"><?= $usersCount ?></span>
                 </div>
                 <!-- /.info-box-content -->
             </div>
@@ -41,8 +41,8 @@
                 <span class="info-box-icon bg-green"><i class="fa fa-flag-o"></i></span>
 
                 <div class="info-box-content">
-                    <span class="info-box-text">Bookmarks</span>
-                    <span class="info-box-number">410</span>
+                    <span class="info-box-text">Orders</span>
+                    <span class="info-box-number"><?= $ordersCount ?></span>
                 </div>
                 <!-- /.info-box-content -->
             </div>

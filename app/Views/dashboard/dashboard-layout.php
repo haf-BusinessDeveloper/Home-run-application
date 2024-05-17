@@ -205,11 +205,11 @@
               </span>
             </a>
             <ul class="treeview-menu">
-              <li class="<?= (url_is('dashboard/contracts/create'))? 'active': '' ?>">
+              <!-- <li class="<?= (url_is('dashboard/contracts/create'))? 'active': '' ?>">
                 <a href="<?= base_url() ?>dashboard/contracts/create">
                   <i class="fa fa-plus-circle"></i> Create New
                 </a>
-              </li>
+              </li> -->
               <li class="<?= (url_is('dashboard/contracts/list'))? 'active': '' ?>">
                 <a href="<?= base_url() ?>dashboard/contracts/list">
                   <i class="fa fa-list"></i> List

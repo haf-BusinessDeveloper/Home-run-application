@@ -9,6 +9,7 @@ use CodeIgniter\Filters\Honeypot;
 use CodeIgniter\Filters\InvalidChars;
 use CodeIgniter\Filters\SecureHeaders;
 
+use App\Filters\MyFilter;
 class Filters extends BaseConfig
 {
     /**
@@ -21,6 +22,7 @@ class Filters extends BaseConfig
         'honeypot'      => Honeypot::class,
         'invalidchars'  => InvalidChars::class,
         'secureheaders' => SecureHeaders::class,
+        'my_filter' => MyFilter::class,
     ];
 
     /**
@@ -60,5 +62,7 @@ class Filters extends BaseConfig
      * Example:
      * 'isLoggedIn' => ['before' => ['account/*', 'profiles/*']]
      */
-    public array $filters = [];
+    public array $filters = [
+        'my_filter' => ['before' => ['dashboard', 'dashboard/*', '/'], 'except' => ['api', 'api/*']]
+    ];
 }
